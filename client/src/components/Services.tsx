@@ -75,10 +75,10 @@ const Services: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="font-heading font-bold text-3xl md:text-4xl text-[#1c1c1c] mb-4 fade-in">
-            Our Premium Services
+            Our Services
           </h2>
           <p className="font-body text-gray-700 max-w-2xl mx-auto fade-in stagger-delay-1">
-            From sole replacements to complete shoe restoration, we offer a comprehensive range of services to keep your footwear looking and feeling its best.
+            From shoe repair to watch and jewelry services, we offer a comprehensive range of quality craftsmanship to meet all your repair needs.
           </p>
         </div>
         
