@@ -12,31 +12,51 @@ const Prices: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   useAnimationObserver(sectionRef);
 
-  const mensPrices = [
-    { service: "Full Sole & Heel", price: "$85 - $120" },
-    { service: "Half Sole", price: "$45 - $65" },
-    { service: "Rubber Heel", price: "$25 - $35" },
-    { service: "Leather Heel", price: "$30 - $45" },
-    { service: "Shoe Shine", price: "$10 - $15" },
-    { service: "Stretching (per shoe)", price: "$15 - $25" }
+  const shoeRepairLarge = [
+    { service: "Rubber Heels", price: "$38 - $68" },
+    { service: "Combination English Heels", price: "$45 - $58" },
+    { service: "Rubber Half Soles & Heels", price: "$64 - $95" },
+    { service: "Rubber Full Soles & Heels", price: "$95 - $130" },
+    { service: "Leather Half Soles & Heels", price: "$85 - $140" },
+    { service: "Sole-Guard™ Protective Soles", price: "$58 - $78" }
   ];
 
-  const womensPrices = [
-    { service: "Heel Caps", price: "$15 - $25" },
-    { service: "Heel Replacement", price: "$30 - $45" },
-    { service: "Sole Protectors", price: "$25 - $35" },
-    { service: "Elastic Repair", price: "$20 - $30" },
-    { service: "Strap Replacement", price: "$25 - $40" },
-    { service: "Color Change", price: "$45 - $85" }
+  const shoeRepairSmall = [
+    { service: "Pin Lifts - Dowels", price: "$18 - $38" },
+    { service: "Rubber Heels", price: "$45 - $58" },
+    { service: "Rubber Full Soles & Heels", price: "$95 - $120" },
+    { service: "Leather Half Soles & Heels", price: "$85 - $110" },
+    { service: "Sole-Guard™ Protective Soles", price: "$48 - $68" }
   ];
 
-  const specialtyPrices = [
-    { service: "Orthopedic Build-up", price: "$55 - $85" },
-    { service: "Custom Insoles", price: "$75 - $120" },
-    { service: "Complete Restoration", price: "$120 - $250" },
-    { service: "Boot Zipper Replacement", price: "$45 - $60" },
-    { service: "Waterproofing", price: "$15 - $30" },
-    { service: "Sneaker Restoration", price: "$40 - $90" }
+  const shoeRepairOther = [
+    { service: "Toe Plates / Heel Plates", price: "$5 - $6" },
+    { service: "Zippers", price: "$48 - $120" },
+    { service: "Cowboy Heels", price: "$48 - $68" },
+    { service: "Bag Repair - Leather Repair", price: "$38 - $95" },
+    { service: "Weatherproofing", price: "$8 - $20" },
+    { service: "Shoe Shine", price: "$8 - $11" }
+  ];
+
+  const watchRepair = [
+    { service: "Battery Replacement", price: "$16 - $24" },
+    { service: "Watchband Replacement", price: "$20 - $38" },
+    { service: "Stem and Crown Replacement", price: "$28 - $65" },
+    { service: "Crown Replacement", price: "$39 - $70" },
+    { service: "Cleaning and Polishing", price: "$70 - $160" }
+  ];
+
+  const jewelryRepair = [
+    { service: "Chain Repair", price: "$16 - $34" },
+    { service: "Ring Sizing", price: "$28 - $75" },
+    { service: "Replanting in Gold or White Gold", price: "$25 - $60" },
+    { service: "Engraving", price: "$15 - $60" },
+    { service: "Polish", price: "$15 - $55" },
+    { service: "Cleaning", price: "$10 - $30" },
+    { service: "Stone Sitting", price: "$10 - $85" },
+    { service: "Laser Welding", price: "$18 - $65" },
+    { service: "Pearl Restring", price: "$40 - $85" },
+    { service: "Glasses Repair", price: "$16 - $65" }
   ];
 
   return (
@@ -45,63 +65,97 @@ const Prices: React.FC = () => {
         <div className="text-center mb-16">
           <h2 className="font-heading font-bold text-3xl md:text-4xl text-[#1c1c1c] mb-4 fade-in">Price List</h2>
           <p className="font-body text-gray-700 max-w-2xl mx-auto fade-in stagger-delay-1">
-            Our transparent pricing ensures you know exactly what to expect. All prices may vary depending on the condition and material of your shoes.
+            Our transparent pricing ensures you know exactly what to expect. All prices may vary depending on the condition and material of your items.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          {/* Men's Repairs */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+          {/* Shoe Repair - Large */}
           <div className="bg-[#f5f5f5] rounded-lg shadow-md p-6 scale-in">
             <h3 className="font-heading font-semibold text-2xl text-[#1c1c1c] mb-6 flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2 text-[#aa1e1e]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
               </svg>
-              Men's Repairs
+              Shoe Repair – Large
             </h3>
             
             <div className="space-y-4">
-              {mensPrices.map((item, index) => (
+              {shoeRepairLarge.map((item, index) => (
                 <PriceItem key={index} service={item.service} price={item.price} />
               ))}
             </div>
           </div>
           
-          {/* Women's Repairs */}
+          {/* Shoe Repair - Small */}
           <div className="bg-[#f5f5f5] rounded-lg shadow-md p-6 scale-in stagger-delay-1">
             <h3 className="font-heading font-semibold text-2xl text-[#1c1c1c] mb-6 flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2 text-[#aa1e1e]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              Women's Repairs
+              Shoe Repair – Small
             </h3>
             
             <div className="space-y-4">
-              {womensPrices.map((item, index) => (
+              {shoeRepairSmall.map((item, index) => (
                 <PriceItem key={index} service={item.service} price={item.price} />
               ))}
             </div>
           </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Specialty Services */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+          {/* Shoe Repair - Other */}
           <div className="bg-[#f5f5f5] rounded-lg shadow-md p-6 scale-in stagger-delay-2">
             <h3 className="font-heading font-semibold text-2xl text-[#1c1c1c] mb-6 flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2 text-[#aa1e1e]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
-              Specialty Services
+              Shoe Repair – Other
             </h3>
             
             <div className="space-y-4">
-              {specialtyPrices.map((item, index) => (
+              {shoeRepairOther.map((item, index) => (
                 <PriceItem key={index} service={item.service} price={item.price} />
               ))}
             </div>
           </div>
           
-          {/* Estimates */}
-          <div className="bg-[#aa1e1e] bg-opacity-10 rounded-lg shadow-md p-6 scale-in stagger-delay-3">
+          {/* Watch Repair */}
+          <div className="bg-[#f5f5f5] rounded-lg shadow-md p-6 scale-in stagger-delay-3">
+            <h3 className="font-heading font-semibold text-2xl text-[#1c1c1c] mb-6 flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2 text-[#aa1e1e]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              Watch Repair
+            </h3>
+            
+            <div className="space-y-4">
+              {watchRepair.map((item, index) => (
+                <PriceItem key={index} service={item.service} price={item.price} />
+              ))}
+            </div>
+          </div>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+          {/* Jewelry Repair */}
+          <div className="bg-[#f5f5f5] rounded-lg shadow-md p-6 scale-in stagger-delay-4">
+            <h3 className="font-heading font-semibold text-2xl text-[#1c1c1c] mb-6 flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2 text-[#aa1e1e]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+              Jewelry Repair
+            </h3>
+            
+            <div className="space-y-4">
+              {jewelryRepair.map((item, index) => (
+                <PriceItem key={index} service={item.service} price={item.price} />
+              ))}
+            </div>
+          </div>
+          
+          {/* Free Estimates */}
+          <div className="bg-[#aa1e1e] bg-opacity-10 rounded-lg shadow-md p-6 scale-in stagger-delay-5">
             <h3 className="font-heading font-semibold text-2xl text-[#1c1c1c] mb-6 flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2 text-[#aa1e1e]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -110,13 +164,13 @@ const Prices: React.FC = () => {
             </h3>
             
             <p className="font-body text-gray-700 mb-6">
-              We provide free evaluations and price quotes for all repair services. Bring your shoes in for an expert assessment with no obligation.
+              We provide free evaluations and price quotes for all repair services. Bring your items in for an expert assessment with no obligation.
             </p>
             
             <div className="bg-white rounded-lg p-6 shadow-sm">
               <h4 className="font-heading font-semibold text-xl text-[#aa1e1e] mb-3">Our Promise</h4>
               <p className="font-body text-gray-700 mb-4">
-                All repairs are guaranteed for 30 days. If you're not satisfied with our work, bring your shoes back and we'll make it right.
+                All repairs are guaranteed for 30 days. If you're not satisfied with our work, bring your items back and we'll make it right.
               </p>
               <a 
                 href="#contact" 
@@ -126,6 +180,13 @@ const Prices: React.FC = () => {
               </a>
             </div>
           </div>
+        </div>
+        
+        {/* Disclaimer */}
+        <div className="mt-8 text-center">
+          <p className="text-sm text-gray-600 italic">
+            We are not responsible for any items left for more than 30 days after completion of the work.
+          </p>
         </div>
       </div>
     </section>
