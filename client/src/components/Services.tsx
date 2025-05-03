@@ -73,15 +73,6 @@ const Services: React.FC = () => {
   return (
     <section id="services" ref={sectionRef} className="py-16 md:py-24 bg-[#f5f5f5]">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="font-heading font-bold text-3xl md:text-4xl text-[#1c1c1c] mb-4 fade-in">
-            Our Services
-          </h2>
-          <p className="font-body text-gray-700 max-w-2xl mx-auto fade-in stagger-delay-1">
-            From shoe repair to watch and jewelry services, we offer a comprehensive range of quality craftsmanship to meet all your repair needs.
-          </p>
-        </div>
-        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <ServiceCard 

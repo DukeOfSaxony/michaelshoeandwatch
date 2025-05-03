@@ -11,9 +11,7 @@ const Footer: React.FC = () => {
               <div className="h-12 mr-3">
                 <img src="/assets/michaels-logo.png" alt="Michael's Shoe Repair" className="h-full" />
               </div>
-              <div>
-                <h3 className="font-heading font-bold text-lg text-white">SHOE REPAIR</h3>
-              </div>
+
             </div>
             <p className="font-body text-gray-300 mb-6">
               Brooklyn's premier shoe repair service for over 30 years. Specializing in traditional craftsmanship and modern techniques to extend the life of your favorite footwear.
