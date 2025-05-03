@@ -44,7 +44,7 @@ const Header: React.FC = () => {
   return (
     <header 
       id="navbar" 
-      className={`fixed w-full ${isScrolled ? 'py-2 bg-[#f5f5f5] shadow-md' : 'py-3 md:py-4'} z-50 transition-all duration-300`}
+      className={`fixed w-full ${isScrolled ? 'py-2 bg-[#f5f5f5] shadow-md' : 'py-3 md:py-4 bg-[#1c1c1c]/70 backdrop-blur-sm'} z-50 transition-all duration-300`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <a href="#hero" className="flex items-center">
@@ -52,19 +52,19 @@ const Header: React.FC = () => {
             <span className="text-white font-heading font-bold text-lg md:text-xl">M</span>
           </div>
           <div>
-            <h1 className="font-heading font-bold text-lg md:text-xl text-[#1c1c1c]">Michael's</h1>
-            <p className="text-xs md:text-sm text-gray-600 -mt-1">Shoe Repair</p>
+            <h1 className={`font-heading font-bold text-lg md:text-xl ${isScrolled ? 'text-[#1c1c1c]' : 'text-white'}`}>Michael's</h1>
+            <p className={`text-xs md:text-sm -mt-1 ${isScrolled ? 'text-gray-600' : 'text-gray-200'}`}>Shoe Repair</p>
           </div>
         </a>
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          <a href="#about" className="nav-link font-body text-[#1c1c1c] hover:text-[#aa1e1e] transition-colors">About</a>
-          <a href="#services" className="nav-link font-body text-[#1c1c1c] hover:text-[#aa1e1e] transition-colors">Services</a>
-          <a href="#prices" className="nav-link font-body text-[#1c1c1c] hover:text-[#aa1e1e] transition-colors">Prices</a>
-          <a href="#gallery" className="nav-link font-body text-[#1c1c1c] hover:text-[#aa1e1e] transition-colors">Gallery</a>
-          <a href="#testimonials" className="nav-link font-body text-[#1c1c1c] hover:text-[#aa1e1e] transition-colors">Testimonials</a>
-          <a href="#contact" className="bg-[#aa1e1e] text-white px-4 py-2 rounded hover:bg-opacity-90 transition-colors">Contact</a>
+          <a href="#about" className={`nav-link font-body ${isScrolled ? 'text-[#1c1c1c]' : 'text-white'} hover:text-[#aa1e1e] transition-colors`}>About</a>
+          <a href="#services" className={`nav-link font-body ${isScrolled ? 'text-[#1c1c1c]' : 'text-white'} hover:text-[#aa1e1e] transition-colors`}>Services</a>
+          <a href="#prices" className={`nav-link font-body ${isScrolled ? 'text-[#1c1c1c]' : 'text-white'} hover:text-[#aa1e1e] transition-colors`}>Prices</a>
+          <a href="#gallery" className={`nav-link font-body ${isScrolled ? 'text-[#1c1c1c]' : 'text-white'} hover:text-[#aa1e1e] transition-colors`}>Gallery</a>
+          <a href="#testimonials" className={`nav-link font-body ${isScrolled ? 'text-[#1c1c1c]' : 'text-white'} hover:text-[#aa1e1e] transition-colors`}>Testimonials</a>
+          <a href="#contact" className={`${isScrolled ? 'bg-[#aa1e1e]' : 'bg-[#aa1e1e] bg-opacity-90'} text-white px-4 py-2 rounded hover:bg-opacity-100 transition-colors shadow-md`}>Contact</a>
         </nav>
         
         {/* Mobile Menu Button */}

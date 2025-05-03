@@ -168,6 +168,7 @@
   width: 0;
   height: 2px;
   background-color: #aa1e1e;
+  box-shadow: 0 0 8px rgba(170, 30, 30, 0.5);
   transition: width 0.3s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
