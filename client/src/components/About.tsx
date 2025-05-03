@@ -1,0 +1,57 @@
+import React, { useRef } from 'react';
+import useAnimationObserver from '@/hooks/useAnimationObserver';
+
+const About: React.FC = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  useAnimationObserver(sectionRef);
+
+  return (
+    <section id="about" ref={sectionRef} className="py-16 md:py-24 bg-white">
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col lg:flex-row items-center">
+          <div className="lg:w-1/2 lg:pr-12 mb-12 lg:mb-0">
+            <h2 className="font-heading font-bold text-3xl md:text-4xl text-[#1c1c1c] mb-6 slide-from-left">
+              Tradition Meets Excellence
+            </h2>
+            <p className="font-body text-gray-700 mb-6 slide-from-left stagger-delay-1">
+              For over 35 years, Michael's Shoe Repair has been a cornerstone of the Carroll Gardens community in Brooklyn. 
+              Our commitment to quality craftsmanship and traditional repair techniques has earned us a reputation as the 
+              neighborhood's most trusted cobbler.
+            </p>
+            <p className="font-body text-gray-700 mb-6 slide-from-left stagger-delay-2">
+              What sets us apart is our dedication to preserving the art of shoe repair while embracing modern techniques 
+              that extend the life of your favorite footwear. Every pair of shoes that comes through our door receives 
+              the same meticulous attention to detail.
+            </p>
+            <div className="flex items-center slide-from-left stagger-delay-3">
+              <img 
+                src="https://images.unsplash.com/photo-1560069014-a920e44a13fe?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&h=100&q=80" 
+                alt="Michael" 
+                className="w-16 h-16 rounded-full object-cover border-2 border-[#aa1e1e]" 
+              />
+              <div className="ml-4">
+                <p className="font-heading font-semibold text-[#1c1c1c]">Michael Rossi</p>
+                <p className="text-sm text-gray-600">Master Cobbler & Owner</p>
+              </div>
+            </div>
+          </div>
+          <div className="lg:w-1/2 slide-from-right">
+            <div className="relative">
+              <img 
+                src="https://images.unsplash.com/photo-1621477304148-c7757e6c8f34?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                alt="Shoemaker workshop" 
+                className="rounded-lg shadow-lg w-full" 
+              />
+              <div className="absolute -bottom-6 -left-6 bg-[#ffb340] p-4 rounded shadow-md hidden md:block">
+                <p className="font-heading font-bold text-[#1c1c1c] text-3xl">35+</p>
+                <p className="text-[#1c1c1c]">Years of Experience</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default About;
