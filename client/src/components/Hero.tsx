@@ -26,10 +26,10 @@ const Hero: React.FC = () => {
           </p>
           <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 fade-in stagger-delay-2">
             <a 
-              href="#services" 
+              href="#prices" 
               className="bg-[#aa1e1e] text-white font-heading font-semibold px-8 py-3 rounded text-center hover:bg-opacity-90 transition-colors"
             >
-              Our Services
+              Price List
             </a>
             <a 
               href="#contact" 
