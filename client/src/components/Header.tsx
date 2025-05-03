@@ -54,12 +54,12 @@ const Header: React.FC = () => {
         </a>
         
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
-          <a href="#about" className={`nav-link font-body ${isScrolled ? 'text-[#1c1c1c]' : 'text-white'} hover:text-[#aa1e1e] transition-colors`}>About</a>
-          <a href="#services" className={`nav-link font-body ${isScrolled ? 'text-[#1c1c1c]' : 'text-white'} hover:text-[#aa1e1e] transition-colors`}>Services</a>
-          <a href="#prices" className={`nav-link font-body ${isScrolled ? 'text-[#1c1c1c]' : 'text-white'} hover:text-[#aa1e1e] transition-colors`}>Prices</a>
-          <a href="#gallery" className={`nav-link font-body ${isScrolled ? 'text-[#1c1c1c]' : 'text-white'} hover:text-[#aa1e1e] transition-colors`}>Gallery</a>
-          <a href="#testimonials" className={`nav-link font-body ${isScrolled ? 'text-[#1c1c1c]' : 'text-white'} hover:text-[#aa1e1e] transition-colors`}>Testimonials</a>
+        <nav className="hidden md:flex items-end space-x-4">
+          <a href="#about" className={`nav-link font-body pb-2 ${isScrolled ? 'text-[#1c1c1c]' : 'text-white'} hover:text-[#aa1e1e] transition-colors`}>About</a>
+          <a href="#services" className={`nav-link font-body pb-2 ${isScrolled ? 'text-[#1c1c1c]' : 'text-white'} hover:text-[#aa1e1e] transition-colors`}>Services</a>
+          <a href="#prices" className={`nav-link font-body pb-2 ${isScrolled ? 'text-[#1c1c1c]' : 'text-white'} hover:text-[#aa1e1e] transition-colors`}>Prices</a>
+          <a href="#gallery" className={`nav-link font-body pb-2 ${isScrolled ? 'text-[#1c1c1c]' : 'text-white'} hover:text-[#aa1e1e] transition-colors`}>Gallery</a>
+          <a href="#testimonials" className={`nav-link font-body pb-2 ${isScrolled ? 'text-[#1c1c1c]' : 'text-white'} hover:text-[#aa1e1e] transition-colors`}>Testimonials</a>
           <a href="#contact" className={`${isScrolled ? 'bg-[#aa1e1e]' : 'bg-[#aa1e1e] bg-opacity-90'} text-white px-4 py-2 rounded hover:bg-opacity-100 transition-colors shadow-md`}>Contact</a>
         </nav>
         
