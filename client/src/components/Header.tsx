@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -18,11 +20,26 @@ const Header: React.FC = () => {
       setIsScrolled(scrollTop > 50);
     };
 
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        isMenuOpen && 
+        menuRef.current && 
+        !menuRef.current.contains(event.target as Node) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target as Node)
+      ) {
+        setIsMenuOpen(false);
+      }
+    };
+
     window.addEventListener('scroll', handleScroll);
+    document.addEventListener('mousedown', handleClickOutside);
+    
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, []);
+  }, [isMenuOpen]);
 
   return (
     <header 
@@ -53,27 +70,36 @@ const Header: React.FC = () => {
         {/* Mobile Menu Button */}
         <button 
           id="mobile-menu-button" 
-          className="md:hidden focus:outline-none"
+          ref={buttonRef}
+          className="md:hidden p-2 rounded hover:bg-gray-200 transition-colors focus:outline-none"
           onClick={toggleMenu}
           aria-label="Toggle mobile menu"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
+          {isMenuOpen ? (
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[#aa1e1e]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          ) : (
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[#1c1c1c]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          )}
         </button>
       </div>
       
       {/* Mobile Navigation */}
-      <div id="mobile-menu" className={`mobile-menu absolute top-full left-0 w-full bg-[#f5f5f5] shadow-md md:hidden ${isMenuOpen ? 'open' : ''}`}>
-        <div className="container mx-auto px-4 py-3 flex flex-col space-y-4">
-          <a href="#about" className="font-body text-[#1c1c1c] hover:text-[#aa1e1e] transition-colors py-2" onClick={closeMenu}>About</a>
-          <a href="#services" className="font-body text-[#1c1c1c] hover:text-[#aa1e1e] transition-colors py-2" onClick={closeMenu}>Services</a>
-          <a href="#prices" className="font-body text-[#1c1c1c] hover:text-[#aa1e1e] transition-colors py-2" onClick={closeMenu}>Prices</a>
-          <a href="#gallery" className="font-body text-[#1c1c1c] hover:text-[#aa1e1e] transition-colors py-2" onClick={closeMenu}>Gallery</a>
-          <a href="#testimonials" className="font-body text-[#1c1c1c] hover:text-[#aa1e1e] transition-colors py-2" onClick={closeMenu}>Testimonials</a>
-          <a href="#contact" className="bg-[#aa1e1e] text-white px-4 py-2 rounded hover:bg-opacity-90 transition-colors text-center" onClick={closeMenu}>Contact</a>
+      {isMenuOpen && (
+        <div id="mobile-menu" ref={menuRef} className="absolute top-full left-0 w-full bg-[#f5f5f5] shadow-md md:hidden z-50">
+          <div className="container mx-auto px-4 py-5 flex flex-col space-y-4">
+            <a href="#about" className="font-body text-[#1c1c1c] hover:text-[#aa1e1e] transition-colors py-3 border-b border-gray-200" onClick={closeMenu}>About</a>
+            <a href="#services" className="font-body text-[#1c1c1c] hover:text-[#aa1e1e] transition-colors py-3 border-b border-gray-200" onClick={closeMenu}>Services</a>
+            <a href="#prices" className="font-body text-[#1c1c1c] hover:text-[#aa1e1e] transition-colors py-3 border-b border-gray-200" onClick={closeMenu}>Prices</a>
+            <a href="#gallery" className="font-body text-[#1c1c1c] hover:text-[#aa1e1e] transition-colors py-3 border-b border-gray-200" onClick={closeMenu}>Gallery</a>
+            <a href="#testimonials" className="font-body text-[#1c1c1c] hover:text-[#aa1e1e] transition-colors py-3 border-b border-gray-200" onClick={closeMenu}>Testimonials</a>
+            <a href="#contact" className="bg-[#aa1e1e] text-white px-4 py-3 rounded hover:bg-opacity-90 transition-colors text-center mt-2" onClick={closeMenu}>Contact</a>
+          </div>
         </div>
-      </div>
+      )}
     </header>
   );
 };
