@@ -56,7 +56,6 @@ const Header: React.FC = () => {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-end space-x-4">
           <a href="#about" className={`nav-link font-body pb-2 ${isScrolled ? 'text-[#1c1c1c]' : 'text-white'} hover:text-[#aa1e1e] transition-colors`}>About</a>
-          <a href="#services" className={`nav-link font-body pb-2 ${isScrolled ? 'text-[#1c1c1c]' : 'text-white'} hover:text-[#aa1e1e] transition-colors`}>Services</a>
           <a href="#prices" className={`nav-link font-body pb-2 ${isScrolled ? 'text-[#1c1c1c]' : 'text-white'} hover:text-[#aa1e1e] transition-colors`}>Prices</a>
           <a href="#gallery" className={`nav-link font-body pb-2 ${isScrolled ? 'text-[#1c1c1c]' : 'text-white'} hover:text-[#aa1e1e] transition-colors`}>Gallery</a>
           <a href="#testimonials" className={`nav-link font-body pb-2 ${isScrolled ? 'text-[#1c1c1c]' : 'text-white'} hover:text-[#aa1e1e] transition-colors`}>Testimonials</a>
@@ -90,10 +89,6 @@ const Header: React.FC = () => {
             <a href="#about" className="font-body text-[#1c1c1c] hover:bg-[#f5f5f5] hover:text-[#aa1e1e] transition-all py-4 px-3 border-b border-gray-200 text-lg font-medium flex items-center" onClick={closeMenu}>
               <span className="w-1.5 h-1.5 bg-[#aa1e1e] rounded-full mr-3"></span>
               About
-            </a>
-            <a href="#services" className="font-body text-[#1c1c1c] hover:bg-[#f5f5f5] hover:text-[#aa1e1e] transition-all py-4 px-3 border-b border-gray-200 text-lg font-medium flex items-center" onClick={closeMenu}>
-              <span className="w-1.5 h-1.5 bg-[#aa1e1e] rounded-full mr-3"></span>
-              Services
             </a>
             <a href="#prices" className="font-body text-[#1c1c1c] hover:bg-[#f5f5f5] hover:text-[#aa1e1e] transition-all py-4 px-3 border-b border-gray-200 text-lg font-medium flex items-center" onClick={closeMenu}>
               <span className="w-1.5 h-1.5 bg-[#aa1e1e] rounded-full mr-3"></span>

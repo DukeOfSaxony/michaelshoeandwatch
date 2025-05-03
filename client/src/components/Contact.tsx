@@ -166,7 +166,7 @@ const Contact: React.FC = () => {
                   </svg>
                   <div>
                     <h4 className="font-heading font-semibold text-lg mb-1">Phone</h4>
-                    <p className="font-body text-gray-300">(718) 555-1234</p>
+                    <p className="font-body text-gray-300">(718) 243-0288</p>
                   </div>
                 </div>
                 
