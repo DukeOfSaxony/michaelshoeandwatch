@@ -146,7 +146,7 @@ const Contact: React.FC = () => {
                   </svg>
                   <div>
                     <h4 className="font-heading font-semibold text-lg mb-1">Address</h4>
-                    <p className="font-body text-gray-300">358 Smith Street<br/>Carroll Gardens, Brooklyn<br/>NY 11231</p>
+                    <p className="font-body text-gray-300">319 Smith Street<br/>Carroll Gardens, Brooklyn<br/>NY 11231</p>
                   </div>
                 </div>
                 
@@ -185,7 +185,7 @@ const Contact: React.FC = () => {
             {/* Map */}
             <div className="rounded-lg shadow-md overflow-hidden h-64 fade-in stagger-delay-4">
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3026.0989205344847!2d-73.99595092396794!3d40.67800977151053!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a57195d9b77%3A0x9c0a8863a2f7140!2s358%20Smith%20St%2C%20Brooklyn%2C%20NY%2011231!5e0!3m2!1sen!2sus!4v1687789430851!5m2!1sen!2sus" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3026.1277463686737!2d-73.9963872!3d40.677458299999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a57195d9b77%3A0x9c0a8863a2f7140!2s319%20Smith%20St%2C%20Brooklyn%2C%20NY%2011231!5e0!3m2!1sen!2sus!4v1687789430851!5m2!1sen!2sus" 
                 width="100%" 
                 height="100%" 
                 style={{ border: 0 }} 

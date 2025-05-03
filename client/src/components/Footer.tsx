@@ -8,16 +8,15 @@ const Footer: React.FC = () => {
           {/* About Column */}
           <div>
             <div className="flex items-center mb-6">
-              <div className="w-10 h-10 bg-[#aa1e1e] rounded-full flex items-center justify-center mr-3">
-                <span className="text-white font-heading font-bold text-lg">M</span>
+              <div className="h-12 mr-3">
+                <img src="/assets/michaels-logo.png" alt="Michael's Shoe Repair" className="h-full" />
               </div>
               <div>
-                <h3 className="font-heading font-bold text-lg text-white">Michael's</h3>
-                <p className="text-xs text-gray-400 -mt-1">Shoe Repair</p>
+                <h3 className="font-heading font-bold text-lg text-white">SHOE REPAIR</h3>
               </div>
             </div>
             <p className="font-body text-gray-300 mb-6">
-              Brooklyn's premier shoe repair service since 1985. Specializing in traditional craftsmanship and modern techniques to extend the life of your favorite footwear.
+              Brooklyn's premier shoe repair service for over 30 years. Specializing in traditional craftsmanship and modern techniques to extend the life of your favorite footwear.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-300 hover:text-[#ffb340] transition-colors">
@@ -79,7 +78,7 @@ const Footer: React.FC = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
                 <span className="font-body text-gray-300">
-                  358 Smith Street<br/>Carroll Gardens, Brooklyn<br/>NY 11231
+                  319 Smith Street<br/>Carroll Gardens, Brooklyn<br/>NY 11231
                 </span>
               </li>
               <li className="flex items-start">
