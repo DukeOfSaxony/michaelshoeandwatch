@@ -48,10 +48,8 @@ const Header: React.FC = () => {
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <a href="#hero" className="flex items-center">
-          <div className="h-10 md:h-14 flex items-center">
-            <h1 className={`font-heading font-bold text-xl md:text-2xl ${isScrolled ? 'text-[#1c1c1c]' : 'text-white'}`}>
-              Michael's
-            </h1>
+          <div className="h-10 md:h-14">
+            <img src="/assets/michaels-logo.png" alt="Michael's Shoe Repair" className="h-full object-contain" />
           </div>
         </a>
         
