@@ -71,16 +71,16 @@ const Header: React.FC = () => {
         <button 
           id="mobile-menu-button" 
           ref={buttonRef}
-          className="md:hidden p-2 rounded hover:bg-gray-200 transition-colors focus:outline-none"
+          className={`md:hidden p-2 rounded-md ${isMenuOpen ? 'bg-[#aa1e1e] text-white' : 'bg-white shadow-sm border border-gray-200 text-[#1c1c1c]'} transition-all duration-300 focus:outline-none`}
           onClick={toggleMenu}
           aria-label="Toggle mobile menu"
         >
           {isMenuOpen ? (
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[#aa1e1e]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
           ) : (
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[#1c1c1c]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           )}
@@ -89,14 +89,31 @@ const Header: React.FC = () => {
       
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div id="mobile-menu" ref={menuRef} className="absolute top-full left-0 w-full bg-[#f5f5f5] shadow-md md:hidden z-50">
-          <div className="container mx-auto px-4 py-5 flex flex-col space-y-4">
-            <a href="#about" className="font-body text-[#1c1c1c] hover:text-[#aa1e1e] transition-colors py-3 border-b border-gray-200" onClick={closeMenu}>About</a>
-            <a href="#services" className="font-body text-[#1c1c1c] hover:text-[#aa1e1e] transition-colors py-3 border-b border-gray-200" onClick={closeMenu}>Services</a>
-            <a href="#prices" className="font-body text-[#1c1c1c] hover:text-[#aa1e1e] transition-colors py-3 border-b border-gray-200" onClick={closeMenu}>Prices</a>
-            <a href="#gallery" className="font-body text-[#1c1c1c] hover:text-[#aa1e1e] transition-colors py-3 border-b border-gray-200" onClick={closeMenu}>Gallery</a>
-            <a href="#testimonials" className="font-body text-[#1c1c1c] hover:text-[#aa1e1e] transition-colors py-3 border-b border-gray-200" onClick={closeMenu}>Testimonials</a>
-            <a href="#contact" className="bg-[#aa1e1e] text-white px-4 py-3 rounded hover:bg-opacity-90 transition-colors text-center mt-2" onClick={closeMenu}>Contact</a>
+        <div id="mobile-menu" ref={menuRef} className="absolute top-full left-0 w-full bg-white shadow-lg md:hidden z-50">
+          <div className="container mx-auto px-4 py-2 flex flex-col">
+            <a href="#about" className="font-body text-[#1c1c1c] hover:bg-[#f5f5f5] hover:text-[#aa1e1e] transition-all py-4 px-3 border-b border-gray-200 text-lg font-medium flex items-center" onClick={closeMenu}>
+              <span className="w-1.5 h-1.5 bg-[#aa1e1e] rounded-full mr-3"></span>
+              About
+            </a>
+            <a href="#services" className="font-body text-[#1c1c1c] hover:bg-[#f5f5f5] hover:text-[#aa1e1e] transition-all py-4 px-3 border-b border-gray-200 text-lg font-medium flex items-center" onClick={closeMenu}>
+              <span className="w-1.5 h-1.5 bg-[#aa1e1e] rounded-full mr-3"></span>
+              Services
+            </a>
+            <a href="#prices" className="font-body text-[#1c1c1c] hover:bg-[#f5f5f5] hover:text-[#aa1e1e] transition-all py-4 px-3 border-b border-gray-200 text-lg font-medium flex items-center" onClick={closeMenu}>
+              <span className="w-1.5 h-1.5 bg-[#aa1e1e] rounded-full mr-3"></span>
+              Prices
+            </a>
+            <a href="#gallery" className="font-body text-[#1c1c1c] hover:bg-[#f5f5f5] hover:text-[#aa1e1e] transition-all py-4 px-3 border-b border-gray-200 text-lg font-medium flex items-center" onClick={closeMenu}>
+              <span className="w-1.5 h-1.5 bg-[#aa1e1e] rounded-full mr-3"></span>
+              Gallery
+            </a>
+            <a href="#testimonials" className="font-body text-[#1c1c1c] hover:bg-[#f5f5f5] hover:text-[#aa1e1e] transition-all py-4 px-3 border-b border-gray-200 text-lg font-medium flex items-center" onClick={closeMenu}>
+              <span className="w-1.5 h-1.5 bg-[#aa1e1e] rounded-full mr-3"></span>
+              Testimonials
+            </a>
+            <div className="p-3 my-2">
+              <a href="#contact" className="bg-[#aa1e1e] text-white font-medium px-4 py-3 rounded hover:bg-opacity-90 transition-colors text-center block w-full text-lg shadow-md" onClick={closeMenu}>Contact Us</a>
+            </div>
           </div>
         </div>
       )}
