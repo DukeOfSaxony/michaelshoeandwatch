@@ -1,5 +1,7 @@
 import React, { useRef } from 'react';
 import useAnimationObserver from '@/hooks/useAnimationObserver';
+import yelpLogo from '@assets/yelp.png';
+import googleLogo from '@assets/google.png';
 
 interface TestimonialProps {
   text: string;
@@ -86,26 +88,24 @@ const Testimonials: React.FC = () => {
         {/* Review Platform Links */}
         <div className="mt-12 text-center">
           <p className="font-body text-gray-700 mb-6 fade-in stagger-delay-3">
-            Read more of our 100+ five-star reviews on:
+            Read more reviews from happy customers on:
           </p>
-          <div className="flex flex-wrap justify-center gap-4 fade-in stagger-delay-4">
-            <a href="#" className="flex items-center bg-white py-3 px-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#4285F4">
-                <path d="M12 22.5c1.216 0 2.369-.23 3.432-.645l3.876 3.876 1.732-1.732-3.876-3.876c.416-1.063.645-2.216.645-3.432 0-5.315-4.316-9.631-9.631-9.631-5.315 0-9.631 4.316-9.631 9.631s4.316 9.631 9.631 9.631zm0-14.041c2.441 0 4.41 1.969 4.41 4.41 0 2.441-1.969 4.41-4.41 4.41-2.441 0-4.41-1.969-4.41-4.41 0-2.441 1.969-4.41 4.41-4.41z"/>
-              </svg>
-              <span className="ml-2 font-heading font-semibold">Google Reviews</span>
+          <div className="flex flex-wrap justify-center gap-12 fade-in stagger-delay-4">
+            <a 
+              href="https://www.yelp.com/biz/michaels-shoe-repair-brooklyn-2" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="transition-transform hover:scale-105"
+            >
+              <img src={yelpLogo} alt="Yelp Reviews" className="h-12" />
             </a>
-            <a href="#" className="flex items-center bg-white py-3 px-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#d32323">
-                <path d="M21.111 18.226c-.141.133-.312.2-.48.2-.172 0-.343-.067-.484-.2l-3.979-3.979c-1.008.658-2.161 1.017-3.333 1.017-3.422 0-6.204-2.782-6.204-6.204s2.782-6.204 6.204-6.204 6.204 2.782 6.204 6.204c0 1.172-.359 2.325-1.017 3.333l3.979 3.979c.267.267.267.7 0 .967l-.89.887zm-8.277-16.042c-4.091 0-7.418 3.327-7.418 7.418s3.327 7.418 7.418 7.418 7.418-3.327 7.418-7.418-3.327-7.418-7.418-7.418zm0 12.07c-2.56 0-4.652-2.092-4.652-4.652s2.092-4.652 4.652-4.652 4.652 2.092 4.652 4.652-2.092 4.652-4.652 4.652z"/>
-              </svg>
-              <span className="ml-2 font-heading font-semibold">Yelp</span>
-            </a>
-            <a href="#" className="flex items-center bg-white py-3 px-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#4267B2">
-                <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3 8h-1.35c-.538 0-.65.221-.65.778v1.222h2l-.209 2h-1.791v7h-3v-7h-2v-2h2v-2.308c0-1.769.931-2.692 3.029-2.692h1.971v3z"/>
-              </svg>
-              <span className="ml-2 font-heading font-semibold">Facebook</span>
+            <a 
+              href="https://www.google.com/maps/place/Michael's+Shoe+Repair/@40.681102,-73.9966506,17z/data=!3m1!4b1!4m6!3m5!1s0x89c25a5768993891:0xd8f03f82d260f4c7!8m2!3d40.681102!4d-73.9940757!16s%2Fg%2F11c607674q?entry=ttu" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="transition-transform hover:scale-105"
+            >
+              <img src={googleLogo} alt="Google Reviews" className="h-12" />
             </a>
           </div>
         </div>
