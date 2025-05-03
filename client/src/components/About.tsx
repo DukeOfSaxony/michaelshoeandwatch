@@ -14,7 +14,7 @@ const About: React.FC = () => {
               Tradition Meets Excellence
             </h2>
             <p className="font-body text-gray-700 mb-6 slide-from-left stagger-delay-1">
-              For over 35 years, Michael's Shoe Repair has been a cornerstone of the Carroll Gardens community in Brooklyn. 
+              For over 30 years, Michael's Shoe Repair has been a cornerstone of the Carroll Gardens community in Brooklyn at 319 Smith Street. 
               Our commitment to quality craftsmanship and traditional repair techniques has earned us a reputation as the 
               neighborhood's most trusted cobbler.
             </p>
@@ -25,12 +25,12 @@ const About: React.FC = () => {
             </p>
             <div className="flex items-center slide-from-left stagger-delay-3">
               <img 
-                src="https://images.unsplash.com/photo-1560069014-a920e44a13fe?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&h=100&q=80" 
-                alt="Michael" 
+                src="/assets/michael.jpg" 
+                alt="Michael Davidov" 
                 className="w-16 h-16 rounded-full object-cover border-2 border-[#aa1e1e]" 
               />
               <div className="ml-4">
-                <p className="font-heading font-semibold text-[#1c1c1c]">Michael Rossi</p>
+                <p className="font-heading font-semibold text-[#1c1c1c]">Michael Davidov</p>
                 <p className="text-sm text-gray-600">Master Cobbler & Owner</p>
               </div>
             </div>
@@ -38,12 +38,12 @@ const About: React.FC = () => {
           <div className="lg:w-1/2 slide-from-right">
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1621477304148-c7757e6c8f34?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-                alt="Shoemaker workshop" 
+                src="/assets/store.jpg" 
+                alt="Michael's Shoe Repair at 319 Smith Street" 
                 className="rounded-lg shadow-lg w-full" 
               />
               <div className="absolute -bottom-6 -left-6 bg-[#ffb340] p-4 rounded shadow-md hidden md:block">
-                <p className="font-heading font-bold text-[#1c1c1c] text-3xl">35+</p>
+                <p className="font-heading font-bold text-[#1c1c1c] text-3xl">30+</p>
                 <p className="text-[#1c1c1c]">Years of Experience</p>
               </div>
             </div>
