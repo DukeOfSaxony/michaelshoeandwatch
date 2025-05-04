@@ -96,12 +96,12 @@ const Hero: React.FC = () => {
         <div className="max-w-3xl">
           {/* Typing Animation - Now above the heading with 4rem margin */}
           <div 
-            className="flex items-center justify-start w-full mb-16 fade-in text-white" 
+            className="flex items-center justify-center w-full mb-16 fade-in text-white" 
             style={{ 
               fontFamily: 'Oswald, sans-serif',
               fontWeight: 700, 
               letterSpacing: '-0.03em',
-              fontSize: 'calc(2.6rem + 1vw)',
+              fontSize: 'calc(1.95rem + 0.75vw)', /* 25% smaller than calc(2.6rem + 1vw) */
               lineHeight: '1.1',
               textTransform: 'uppercase'
             }}
