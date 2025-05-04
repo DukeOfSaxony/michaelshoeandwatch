@@ -21,9 +21,23 @@ const Contact: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // In a real implementation, you would send this data to a server
-    // For now, just show an alert
-    alert(`Thank you for your message, ${formData.name}! We'll get back to you at ${formData.email} as soon as possible.`);
+    // Create a formatted email body with the form data
+    const emailBody = `
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Service: ${formData.service}
+Message: ${formData.message}
+    `.trim();
+    
+    // Create the mailto link with the recipient, subject, and body
+    const mailtoLink = `mailto:michaelschade@gmail.com?subject=Website Inquiry from ${formData.name}&body=${encodeURIComponent(emailBody)}`;
+    
+    // Open the email client
+    window.location.href = mailtoLink;
+    
+    // Show confirmation message
+    alert(`Thank you for your message, ${formData.name}! Your email client should open with your message prepared to send to Michael's Shoe Repair.`);
     
     // Reset the form
     setFormData({
@@ -189,10 +203,10 @@ const Contact: React.FC = () => {
                   <div>
                     <h4 className="font-heading font-semibold text-lg mb-1">Email</h4>
                     <a 
-                      href="mailto:info@michaelsshoerepair.com?subject=Repair%20Inquiry" 
+                      href="mailto:michaelschade@gmail.com?subject=Repair%20Inquiry" 
                       className="font-body text-gray-300 hover:text-[#ff3e00] transition-colors"
                     >
-                      info@michaelsshoerepair.com
+                      michaelschade@gmail.com
                     </a>
                   </div>
                 </div>
