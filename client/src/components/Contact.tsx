@@ -60,7 +60,7 @@ const Contact: React.FC = () => {
                   id="name" 
                   name="name" 
                   required 
-                  className="focus:ring-[#aa1e1e]"
+                  className="focus:ring-[#ff3e00]"
                   value={formData.name}
                   onChange={handleChange}
                 />
@@ -73,7 +73,7 @@ const Contact: React.FC = () => {
                   id="email" 
                   name="email" 
                   required 
-                  className="focus:ring-[#aa1e1e]"
+                  className="focus:ring-[#ff3e00]"
                   value={formData.email}
                   onChange={handleChange}
                 />
@@ -85,7 +85,7 @@ const Contact: React.FC = () => {
                   type="tel" 
                   id="phone" 
                   name="phone" 
-                  className="focus:ring-[#aa1e1e]"
+                  className="focus:ring-[#ff3e00]"
                   value={formData.phone}
                   onChange={handleChange}
                 />
@@ -96,7 +96,7 @@ const Contact: React.FC = () => {
                 <select 
                   id="service" 
                   name="service" 
-                  className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#aa1e1e] focus:border-[#aa1e1e]"
+                  className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff3e00] focus:border-[#ff3e00]"
                   value={formData.service}
                   onChange={handleChange}
                 >
