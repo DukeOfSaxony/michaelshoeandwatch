@@ -5,6 +5,10 @@ import beforeAndHeelImage from '@assets/beforeandheel.jpg';
 import oxImage from '@assets/ox.jpg';
 import vibramImage from '@assets/vibram.jpg';
 import heelImage from '@assets/heel.jpg';
+import blImage from '@assets/bl.jpg';
+import brImage from '@assets/br.jpg';
+import slImage from '@assets/sl.jpg';
+import srImage from '@assets/sr.jpg';
 
 interface GallerySlide {
   image: string;
@@ -136,7 +140,7 @@ const Gallery: React.FC = () => {
             <div className="grid grid-cols-2">
               <div className="relative">
                 <img 
-                  src={beforeAndBootsImage} 
+                  src={blImage} 
                   alt="Boot before restoration" 
                   className="w-full h-64 object-cover" 
                 />
@@ -144,9 +148,9 @@ const Gallery: React.FC = () => {
               </div>
               <div className="relative">
                 <img 
-                  src={beforeAndBootsImage} 
+                  src={brImage} 
                   alt="Boot after restoration" 
-                  className="w-full h-64 object-cover object-right" 
+                  className="w-full h-64 object-cover" 
                 />
                 <div className="absolute top-2 right-2 bg-[#ffb340] text-[#1c1c1c] text-xs px-2 py-1 rounded">After</div>
               </div>
@@ -155,22 +159,22 @@ const Gallery: React.FC = () => {
           
           <div className="bg-white rounded-lg shadow-md overflow-hidden fade-in stagger-delay-4">
             <div className="p-4 bg-[#1c1c1c]">
-              <h4 className="font-heading font-semibold text-lg text-white text-center">Before & After: Heel Repair</h4>
+              <h4 className="font-heading font-semibold text-lg text-white text-center">Before & After: Sneaker Restore</h4>
             </div>
             <div className="grid grid-cols-2">
               <div className="relative">
                 <img 
-                  src={beforeAndHeelImage} 
-                  alt="Shoes before heel repair" 
+                  src={srImage} 
+                  alt="Sneaker before restoration" 
                   className="w-full h-64 object-cover" 
                 />
                 <div className="absolute top-2 left-2 bg-[#ff3e00] text-white text-xs px-2 py-1 rounded">Before</div>
               </div>
               <div className="relative">
                 <img 
-                  src={beforeAndHeelImage} 
-                  alt="Shoes after heel repair" 
-                  className="w-full h-64 object-cover object-right" 
+                  src={slImage} 
+                  alt="Sneaker after restoration" 
+                  className="w-full h-64 object-cover" 
                 />
                 <div className="absolute top-2 right-2 bg-[#ffb340] text-[#1c1c1c] text-xs px-2 py-1 rounded">After</div>
               </div>
