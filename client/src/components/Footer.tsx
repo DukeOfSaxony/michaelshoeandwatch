@@ -20,14 +20,16 @@ const Footer: React.FC = () => {
           
           {/* Quick Links - Center Column */}
           <div className="flex flex-col items-center">
-            <h3 className="font-heading font-semibold text-lg text-white mb-6">Quick Links</h3>
-            <ul className="space-y-3 text-center">
-              <li><a href="#about" className="font-body text-gray-300 hover:text-[#ff3e00] transition-colors">About Us</a></li>
-              <li><a href="#prices" className="font-body text-gray-300 hover:text-[#ff3e00] transition-colors">Price List</a></li>
-              <li><a href="#gallery" className="font-body text-gray-300 hover:text-[#ff3e00] transition-colors">Gallery</a></li>
-              <li><a href="#testimonials" className="font-body text-gray-300 hover:text-[#ff3e00] transition-colors">Testimonials</a></li>
-              <li><a href="#contact" className="font-body text-gray-300 hover:text-[#ff3e00] transition-colors">Contact Us</a></li>
-            </ul>
+            <div className="max-w-[200px]">
+              <h3 className="font-heading font-semibold text-lg text-white mb-6">Quick Links</h3>
+              <ul className="space-y-3 text-left">
+                <li><a href="#about" className="font-body text-gray-300 hover:text-[#ff3e00] transition-colors">About Us</a></li>
+                <li><a href="#prices" className="font-body text-gray-300 hover:text-[#ff3e00] transition-colors">Price List</a></li>
+                <li><a href="#gallery" className="font-body text-gray-300 hover:text-[#ff3e00] transition-colors">Gallery</a></li>
+                <li><a href="#testimonials" className="font-body text-gray-300 hover:text-[#ff3e00] transition-colors">Testimonials</a></li>
+                <li><a href="#contact" className="font-body text-gray-300 hover:text-[#ff3e00] transition-colors">Contact Us</a></li>
+              </ul>
+            </div>
           </div>
           
           {/* Contact Info - Right Column */}
