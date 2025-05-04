@@ -33,7 +33,7 @@ const Hero: React.FC = () => {
         return (
           <span>
             <span className="text-[#ff3e00]">{parts[0]}</span>
-            {" " + parts.slice(1).join(" ")}
+            <span className="text-white">{" " + parts.slice(1).join(" ")}</span>
           </span>
         );
       }
@@ -96,16 +96,17 @@ const Hero: React.FC = () => {
         <div className="max-w-3xl">
           {/* Typing Animation - Now above the heading with 4rem margin */}
           <div 
-            className="flex items-center justify-start w-full mb-16 fade-in" 
+            className="flex items-center justify-start w-full mb-16 fade-in text-white" 
             style={{ 
-              fontFamily: 'Archivo, sans-serif',
-              fontWeight: 800, 
+              fontFamily: 'Oswald, sans-serif',
+              fontWeight: 700, 
               letterSpacing: '-0.03em',
               fontSize: 'calc(2.6rem + 1vw)',
-              lineHeight: '1.1'
+              lineHeight: '1.1',
+              textTransform: 'uppercase'
             }}
           >
-            <div className="mr-4 text-white">WE</div>
+            <div className="mr-4">WE</div>
             <div ref={dynamicTextRef} style={{ whiteSpace: 'nowrap', minHeight: '1.1em' }}>
               {displayedText}
             </div>
