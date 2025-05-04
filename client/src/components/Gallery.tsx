@@ -1,5 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import useAnimationObserver from '@/hooks/useAnimationObserver';
+import beforeAndBootsImage from '@assets/beforeandboots.jpg';
+import beforeAndHeelImage from '@assets/beforeandheel.jpg';
 
 interface GallerySlide {
   image: string;
@@ -128,17 +130,17 @@ const Gallery: React.FC = () => {
             <div className="grid grid-cols-2">
               <div className="relative">
                 <img 
-                  src="https://images.unsplash.com/photo-1542280756-74b2f55e73ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                  src={beforeAndBootsImage} 
                   alt="Boot before restoration" 
-                  className="w-full h-48 object-cover" 
+                  className="w-full h-64 object-cover" 
                 />
                 <div className="absolute top-2 left-2 bg-[#aa1e1e] text-white text-xs px-2 py-1 rounded">Before</div>
               </div>
               <div className="relative">
                 <img 
-                  src="https://images.unsplash.com/photo-1520639888713-7851133b1ed0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                  src={beforeAndBootsImage} 
                   alt="Boot after restoration" 
-                  className="w-full h-48 object-cover" 
+                  className="w-full h-64 object-cover object-right" 
                 />
                 <div className="absolute top-2 right-2 bg-[#ffb340] text-[#1c1c1c] text-xs px-2 py-1 rounded">After</div>
               </div>
@@ -147,22 +149,22 @@ const Gallery: React.FC = () => {
           
           <div className="bg-white rounded-lg shadow-md overflow-hidden fade-in stagger-delay-4">
             <div className="p-4 bg-[#1c1c1c]">
-              <h4 className="font-heading font-semibold text-lg text-white text-center">Before & After: Leather Shoes</h4>
+              <h4 className="font-heading font-semibold text-lg text-white text-center">Before & After: Heel Repair</h4>
             </div>
             <div className="grid grid-cols-2">
               <div className="relative">
                 <img 
-                  src="https://images.unsplash.com/photo-1519482816300-1490fdf2c2bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
-                  alt="Leather shoes before repair" 
-                  className="w-full h-48 object-cover" 
+                  src={beforeAndHeelImage} 
+                  alt="Shoes before heel repair" 
+                  className="w-full h-64 object-cover" 
                 />
                 <div className="absolute top-2 left-2 bg-[#aa1e1e] text-white text-xs px-2 py-1 rounded">Before</div>
               </div>
               <div className="relative">
                 <img 
-                  src="https://images.unsplash.com/photo-1533867617858-e7b97e060509?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
-                  alt="Leather shoes after repair" 
-                  className="w-full h-48 object-cover" 
+                  src={beforeAndHeelImage} 
+                  alt="Shoes after heel repair" 
+                  className="w-full h-64 object-cover object-right" 
                 />
                 <div className="absolute top-2 right-2 bg-[#ffb340] text-[#1c1c1c] text-xs px-2 py-1 rounded">After</div>
               </div>
