@@ -17,7 +17,7 @@ const Hero: React.FC = () => {
         backgroundBlendMode: 'overlay'
       }}
     >
-      <div className="container mx-auto px-4 mt-16">
+      <div className="container mx-auto px-4 mt-36">
         <div className="max-w-3xl">
           <h1 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl text-white mb-6 fade-in">
             Craftsmanship in Every Repair
@@ -28,7 +28,7 @@ const Hero: React.FC = () => {
           <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 fade-in stagger-delay-2">
             <a 
               href="#prices" 
-              className="bg-[#aa1e1e] text-white font-heading font-semibold px-8 py-3 rounded text-center hover:bg-opacity-90 transition-colors"
+              className="bg-[#ff3e00] text-white font-heading font-semibold px-8 py-3 rounded text-center hover:bg-opacity-90 transition-colors"
             >
               Price List
             </a>
