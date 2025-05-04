@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import useAnimationObserver from '@/hooks/useAnimationObserver';
-import hikeImage from '@assets/hike.jpg';
+import hikingImage from '@assets/hiking.jpg';
 
 const Hero: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -12,12 +12,12 @@ const Hero: React.FC = () => {
       ref={sectionRef}
       className="pt-24 md:pt-32 pb-16 md:pb-24 bg-cover bg-center min-h-screen flex items-center" 
       style={{
-        backgroundImage: `url(${hikeImage})`,
+        backgroundImage: `url(${hikingImage})`,
         backgroundColor: 'rgba(0,0,0,0.65)',
         backgroundBlendMode: 'overlay'
       }}
     >
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 mt-16">
         <div className="max-w-3xl">
           <h1 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl text-white mb-6 fade-in">
             Craftsmanship in Every Repair
