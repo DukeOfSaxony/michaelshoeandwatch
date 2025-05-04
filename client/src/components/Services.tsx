@@ -14,8 +14,8 @@ const ServiceCard: React.FC<{
       <h3 className="font-heading font-semibold text-xl text-[#1c1c1c] mb-3">{title}</h3>
       <p className="font-body text-gray-700 mb-4">{description}</p>
       <div className="flex justify-between items-center">
-        <span className="text-[#aa1e1e] font-heading font-semibold">{price}</span>
-        <a href="#contact" className="text-[#1c1c1c] font-semibold hover:text-[#aa1e1e] transition-colors">Inquire →</a>
+        <span className="text-[#ff3e00] font-heading font-semibold">{price}</span>
+        <a href="#contact" className="text-[#1c1c1c] font-semibold hover:text-[#ff3e00] transition-colors">Inquire →</a>
       </div>
     </div>
   </div>
