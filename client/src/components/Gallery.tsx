@@ -71,8 +71,11 @@ const Gallery: React.FC = () => {
         
         <div className="gallery-container rounded-lg overflow-hidden shadow-lg fade-in stagger-delay-2 relative">
           <div 
-            className="gallery-slider flex transition-transform" 
-            style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+            className="gallery-slider flex" 
+            style={{ 
+              transform: `translateX(-${currentSlide * 100}%)`,
+              transition: 'transform 0.8s cubic-bezier(0.4, 0.0, 0.2, 1)'
+            }}
           >
             {slides.map((slide, index) => (
               <div key={index} className="gallery-slide relative min-w-full">
