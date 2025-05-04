@@ -94,20 +94,30 @@ const Hero: React.FC = () => {
     >
       <div className="container mx-auto px-4 mt-36">
         <div className="max-w-3xl">
-          <h1 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl text-white mb-4 fade-in">
-            Craftsmanship in Every Repair
-          </h1>
-          
-          <p className="font-body text-lg md:text-xl text-gray-200 mb-6 max-w-2xl fade-in stagger-delay-1">
-            Brooklyn's finest shoe repair service since 1985. Traditional techniques meet modern standards at Michael's Shoe Repair in Carroll Gardens.
-          </p>
-          
-          <div className="flex items-center justify-start w-full mb-8 fade-in stagger-delay-2 font-heading font-bold text-4xl md:text-5xl lg:text-6xl text-white" style={{ fontWeight: 800, letterSpacing: '-0.02em' }}>
-            <div className="mr-4">WE</div>
-            <div ref={dynamicTextRef} style={{ whiteSpace: 'nowrap', minHeight: '1em' }}>
+          {/* Typing Animation - Now above the heading with 4rem margin */}
+          <div 
+            className="flex items-center justify-start w-full mb-16 fade-in" 
+            style={{ 
+              fontFamily: 'Archivo, sans-serif',
+              fontWeight: 800, 
+              letterSpacing: '-0.03em',
+              fontSize: 'calc(2.6rem + 1vw)',
+              lineHeight: '1.1'
+            }}
+          >
+            <div className="mr-4 text-white">WE</div>
+            <div ref={dynamicTextRef} style={{ whiteSpace: 'nowrap', minHeight: '1.1em' }}>
               {displayedText}
             </div>
           </div>
+          
+          <h1 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl text-white mb-4 fade-in stagger-delay-1">
+            Craftsmanship in Every Repair
+          </h1>
+          
+          <p className="font-body text-lg md:text-xl text-gray-200 mb-8 max-w-2xl fade-in stagger-delay-2">
+            Brooklyn's finest shoe repair service since 1985. Traditional techniques meet modern standards at Michael's Shoe Repair in Carroll Gardens.
+          </p>
           <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 fade-in stagger-delay-3">
             <a 
               href="#prices" 
