@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import useAnimationObserver from '@/hooks/useAnimationObserver';
+import hikeImage from '@assets/hike.jpg';
 
 const Hero: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -11,8 +12,8 @@ const Hero: React.FC = () => {
       ref={sectionRef}
       className="pt-24 md:pt-32 pb-16 md:pb-24 bg-cover bg-center min-h-screen flex items-center" 
       style={{
-        backgroundImage: `url('https://images.unsplash.com/photo-1613339027986-b94d85708995?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')`,
-        backgroundColor: 'rgba(0,0,0,0.7)',
+        backgroundImage: `url(${hikeImage})`,
+        backgroundColor: 'rgba(0,0,0,0.65)',
         backgroundBlendMode: 'overlay'
       }}
     >
