@@ -27,7 +27,7 @@ const About: React.FC = () => {
               <img 
                 src="/assets/michael.jpg" 
                 alt="Michael Davidov" 
-                className="w-16 h-16 rounded-full object-cover border-2 border-[#aa1e1e]" 
+                className="w-16 h-16 rounded-full object-cover border-2 border-[#ff3e00]" 
               />
               <div className="ml-4">
                 <p className="font-heading font-semibold text-[#1c1c1c]">Michael Davidov</p>
@@ -42,9 +42,9 @@ const About: React.FC = () => {
                 alt="Michael's Shoe Repair at 319 Smith Street" 
                 className="rounded-lg shadow-lg w-full" 
               />
-              <div className="absolute -bottom-6 -left-6 bg-[#ffb340] p-4 rounded shadow-md hidden md:block">
-                <p className="font-heading font-bold text-[#1c1c1c] text-3xl">30+</p>
-                <p className="text-[#1c1c1c]">Years of Experience</p>
+              <div className="absolute -bottom-6 -left-6 bg-[#ff3e00] p-4 rounded shadow-md hidden md:block">
+                <p className="font-heading font-bold text-white text-3xl">30+</p>
+                <p className="text-white">Years of Experience</p>
               </div>
             </div>
           </div>
