@@ -1,0 +1,57 @@
+Create a simple “Terms of Service” page for my this site. The page should:
+	•	Be accessible when the user clicks the “Terms of Service” link in the footer (assume the link points to /privacy).
+	•	Have a minimalist, dark-themed design, similar to https://kyler.design/?ref=deadsimplesites. The background should be black with light-colored text.
+	•	Display  nicely formatted textL “Privacy Policy
+
+Effective Date: [Insert Date]
+
+At Michael’s Shoe & Watch Repair, your privacy is important to us. We’re committed to protecting any personal information you provide, whether you’re booking a repair, sending a message, or simply browsing our site.
+
+1. Information We Collect
+
+We may collect personal information when you:
+	•	Fill out a contact form
+	•	Request a quote or service
+	•	Subscribe to updates (if available)
+
+This typically includes your name, phone number, email address, and any message you choose to include.
+
+2. How We Use Your Information
+
+We use your information to:
+	•	Respond to your inquiries
+	•	Provide services you request
+	•	Improve our communication and customer support
+
+We do not sell or share your personal data with third parties for marketing purposes.
+
+3. Data Storage
+
+All information submitted through our website is stored securely and used only for the purposes stated above. We take appropriate steps to protect it from unauthorized access.
+
+4. Cookies & Tracking
+
+Our website may use basic cookies to improve functionality and performance. We do not use cookies for advertising or to track you across other sites.
+
+5. Your Rights
+
+You can contact us at any time to:
+	•	See what personal data we hold about you (if any)
+	•	Request corrections or deletions
+	•	Ask us to stop using your data
+
+6. Contact
+
+If you have any questions about our privacy practices, contact us at:
+📍 Michael’s Shoe & Watch Repair
+📞 [Insert Phone Number]
+📧 [Insert Email Address]
+	•	Include a prominent “Back” button at the top or bottom of the page that returns the user to the previous page (using JavaScript’s history.back() function).
+	•	The privacy page should be a standalone HTML/CSS/JavaScript file and integrate seamlessly into this project.
+
+
+Target platform: Web
+Operating environment: Online
+Interface style: Minimalist, dark-themed
+Expected output: A complete HTML page with styling and back navigation
+Special features: Back button using history.back()

@@ -1,0 +1,75 @@
+Create a simple “Privacy Policy” page for my this site. The page should:
+	•	Be accessible when the user clicks the “Privacy Policy” link in the footer (assume the link points to /privacy).
+	•	Have a minimalist, dark-themed design, similar to https://kyler.design/?ref=deadsimplesites. The background should be black with light-colored text.
+	•	Display  nicely formatted textL “Terms of Service
+
+Effective Date: [Insert Date]
+
+Welcome to Michael’s Shoe & Watch Repair. By using our services, you agree to the following terms. Please read them carefully.
+
+1. Services Offered
+
+We provide repair and restoration services for:
+	•	Footwear (including heels, soles, stitching, and leather care)
+	•	Watches (battery replacement, movement repair, band adjustments)
+	•	Jewelry (clasp repair, resizing, stone setting, polishing)
+
+All work is performed by experienced technicians using high-quality materials. We aim to restore items as closely as possible to their original condition.
+
+2. Estimates & Approvals
+
+Upon inspection, we will provide an estimate for the repair. No work will commence without your approval. If additional issues are discovered during the repair process, we will contact you for authorization before proceeding.
+
+3. Payment Terms
+
+Payment is due upon completion of the repair. We accept cash, major credit cards, and other agreed-upon payment methods. For items mailed in, payment must be received before return shipping.
+
+4. Turnaround Time
+
+Repair times vary based on the complexity of the work and availability of parts. We will provide an estimated completion date at the time of drop-off or upon receiving your item. While we strive to meet these estimates, delays may occur.
+
+5. Shipping & Handling
+
+If you choose to mail your item to us:
+	•	You are responsible for shipping costs to our facility.
+	•	We recommend using a trackable and insured shipping method.
+	•	We are not responsible for items lost or damaged during transit to our facility.
+	•	Return shipping costs will be included in your final invoice.
+
+6. Risk of Loss
+
+Items left with us are handled with care. However, we are not liable for loss or damage due to unforeseen events such as theft, fire, or natural disasters. We recommend that valuable items be insured.
+
+7. Unclaimed Items
+
+Items not claimed within 90 days of the completion date may be considered abandoned. We will make reasonable efforts to contact you before taking further action, which may include disposal or donation of the item.
+
+8. Warranty & Limitations
+
+We stand behind our workmanship. If you experience issues related to the repair within 30 days, please return the item with your receipt, and we will assess and address the problem. This warranty does not cover:
+	•	Normal wear and tear
+	•	Damage due to misuse or accidents
+	•	Issues unrelated to the original repair
+
+9. Limitation of Liability
+
+Our liability is limited to the cost of the repair service provided. We are not responsible for any indirect, incidental, or consequential damages arising from the use of our services.
+
+10. Modifications to Terms
+
+We reserve the right to update these Terms of Service at any time. Changes will be posted on our website with the effective date. Continued use of our services constitutes acceptance of the revised terms.
+
+11. Contact Information
+
+If you have questions or concerns about these terms, please contact us:
+
+Michael’s Shoe & Watch Repair”  [policy]  
+	•	Include a prominent “Back” button at the top or bottom of the page that returns the user to the previous page (using JavaScript’s history.back() function).
+	•	The privacy page should be a standalone HTML/CSS/JavaScript file and integrate seamlessly into this project.
+
+
+Target platform: Web
+Operating environment: Online
+Interface style: Minimalist, dark-themed
+Expected output: A complete HTML page with styling and back navigation
+Special features: Back button using history.back()
