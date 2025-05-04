@@ -68,8 +68,8 @@ const Footer: React.FC = () => {
               &copy; {new Date().getFullYear()} Michael's Shoe Repair. All rights reserved.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="font-body text-sm text-gray-400 hover:text-[#ff3e00] transition-colors">Privacy Policy</a>
-              <a href="#" className="font-body text-sm text-gray-400 hover:text-[#ff3e00] transition-colors">Terms of Service</a>
+              <a href="/privacy" className="font-body text-sm text-gray-400 hover:text-[#ff3e00] transition-colors">Privacy Policy</a>
+              <a href="/privacy" className="font-body text-sm text-gray-400 hover:text-[#ff3e00] transition-colors">Terms of Service</a>
             </div>
           </div>
         </div>
