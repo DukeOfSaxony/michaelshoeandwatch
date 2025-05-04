@@ -1,8 +1,8 @@
 import React from 'react';
-import PrivacyPolicy from '@/components/PrivacyPolicy';
+import PrivacyPolicyContent from '@/components/PrivacyPolicyContent';
 
 const Privacy: React.FC = () => {
-  return <PrivacyPolicy />;
+  return <PrivacyPolicyContent />;
 };
 
 export default Privacy;

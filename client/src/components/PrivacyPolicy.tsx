@@ -1,7 +1,7 @@
 import React from 'react';
 import michaelsLogo from '@assets/michaels-logo-newer.png';
 
-const PrivacyPolicy: React.FC = () => {
+const TermsOfService: React.FC = () => {
   const handleBackClick = () => {
     window.history.back();
   };
@@ -119,4 +119,4 @@ const PrivacyPolicy: React.FC = () => {
   );
 };
 
-export default PrivacyPolicy;
+export default TermsOfService;
