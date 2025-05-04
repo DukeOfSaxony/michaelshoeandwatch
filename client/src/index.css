@@ -152,8 +152,8 @@
 .form-input textarea:focus,
 .form-input select:focus {
   outline: none;
-  border-color: #aa1e1e;
-  box-shadow: 0 0 0 3px rgba(170, 30, 30, 0.1);
+  border-color: #ff3e00;
+  box-shadow: 0 0 0 3px rgba(255, 62, 0, 0.1);
 }
 
 .nav-link {
@@ -167,8 +167,8 @@
   left: 0;
   width: 0;
   height: 2px;
-  background-color: #aa1e1e;
-  box-shadow: 0 0 8px rgba(170, 30, 30, 0.5);
+  background-color: #ff3e00;
+  box-shadow: 0 0 8px rgba(255, 62, 0, 0.5);
   transition: width 0.3s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
