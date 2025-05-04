@@ -1,28 +1,27 @@
 import React from 'react';
+import michaelsLogo from '@assets/michaels-logo-newer.png';
 
 const Footer: React.FC = () => {
   return (
     <footer className="bg-[#1c1c1c] text-white pt-16 pb-8">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           {/* About Column */}
           <div>
             <div className="flex items-center mb-6">
               <div className="h-12 mr-3">
-                <img src="/assets/michaels-logo-newer.png" alt="Michael's Shoe Repair" className="h-full" />
+                <img src={michaelsLogo} alt="Michael's Shoe Repair" className="h-full" />
               </div>
-
             </div>
             <p className="font-body text-gray-300 mb-6">
               Brooklyn's premier shoe repair service for over 30 years. Specializing in traditional craftsmanship and modern techniques to extend the life of your favorite footwear.
             </p>
-
           </div>
           
-          {/* Quick Links */}
-          <div>
+          {/* Quick Links - Center Column */}
+          <div className="flex flex-col items-center">
             <h3 className="font-heading font-semibold text-lg text-white mb-6">Quick Links</h3>
-            <ul className="space-y-3">
+            <ul className="space-y-3 text-center">
               <li><a href="#about" className="font-body text-gray-300 hover:text-[#ff3e00] transition-colors">About Us</a></li>
               <li><a href="#prices" className="font-body text-gray-300 hover:text-[#ff3e00] transition-colors">Price List</a></li>
               <li><a href="#gallery" className="font-body text-gray-300 hover:text-[#ff3e00] transition-colors">Gallery</a></li>
@@ -31,7 +30,7 @@ const Footer: React.FC = () => {
             </ul>
           </div>
           
-          {/* Contact Info */}
+          {/* Contact Info - Right Column */}
           <div>
             <h3 className="font-heading font-semibold text-lg text-white mb-6">Contact Information</h3>
             <ul className="space-y-4">
