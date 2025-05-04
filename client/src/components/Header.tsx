@@ -86,24 +86,66 @@ const Header: React.FC = () => {
       {isMenuOpen && (
         <div id="mobile-menu" ref={menuRef} className="absolute top-full left-0 w-full bg-white shadow-lg md:hidden z-50">
           <div className="container mx-auto px-4 py-2 flex flex-col">
-            <a href="#about" className="font-body text-[#1c1c1c] hover:bg-[#f5f5f5] hover:text-[#ff3e00] transition-all py-4 px-3 border-b border-gray-200 text-lg font-medium flex items-center" onClick={closeMenu}>
+            <a 
+              href="#about" 
+              className="font-body text-[#1c1c1c] hover:bg-[#f5f5f5] hover:text-[#ff3e00] transition-all py-4 px-3 border-b border-gray-200 text-lg font-medium flex items-center" 
+              onClick={(e) => {
+                e.preventDefault();
+                document.querySelector("#about")?.scrollIntoView({ behavior: "smooth" });
+                closeMenu();
+              }}
+            >
               <span className="w-1.5 h-1.5 bg-[#ff3e00] rounded-full mr-3"></span>
               About
             </a>
-            <a href="#prices" className="font-body text-[#1c1c1c] hover:bg-[#f5f5f5] hover:text-[#ff3e00] transition-all py-4 px-3 border-b border-gray-200 text-lg font-medium flex items-center" onClick={closeMenu}>
+            <a 
+              href="#prices" 
+              className="font-body text-[#1c1c1c] hover:bg-[#f5f5f5] hover:text-[#ff3e00] transition-all py-4 px-3 border-b border-gray-200 text-lg font-medium flex items-center" 
+              onClick={(e) => {
+                e.preventDefault();
+                document.querySelector("#prices")?.scrollIntoView({ behavior: "smooth" });
+                closeMenu();
+              }}
+            >
               <span className="w-1.5 h-1.5 bg-[#ff3e00] rounded-full mr-3"></span>
               Prices
             </a>
-            <a href="#gallery" className="font-body text-[#1c1c1c] hover:bg-[#f5f5f5] hover:text-[#ff3e00] transition-all py-4 px-3 border-b border-gray-200 text-lg font-medium flex items-center" onClick={closeMenu}>
+            <a 
+              href="#gallery" 
+              className="font-body text-[#1c1c1c] hover:bg-[#f5f5f5] hover:text-[#ff3e00] transition-all py-4 px-3 border-b border-gray-200 text-lg font-medium flex items-center" 
+              onClick={(e) => {
+                e.preventDefault();
+                document.querySelector("#gallery")?.scrollIntoView({ behavior: "smooth" });
+                closeMenu();
+              }}
+            >
               <span className="w-1.5 h-1.5 bg-[#ff3e00] rounded-full mr-3"></span>
               Gallery
             </a>
-            <a href="#testimonials" className="font-body text-[#1c1c1c] hover:bg-[#f5f5f5] hover:text-[#ff3e00] transition-all py-4 px-3 border-b border-gray-200 text-lg font-medium flex items-center" onClick={closeMenu}>
+            <a 
+              href="#testimonials" 
+              className="font-body text-[#1c1c1c] hover:bg-[#f5f5f5] hover:text-[#ff3e00] transition-all py-4 px-3 border-b border-gray-200 text-lg font-medium flex items-center" 
+              onClick={(e) => {
+                e.preventDefault();
+                document.querySelector("#testimonials")?.scrollIntoView({ behavior: "smooth" });
+                closeMenu();
+              }}
+            >
               <span className="w-1.5 h-1.5 bg-[#ff3e00] rounded-full mr-3"></span>
               Testimonials
             </a>
             <div className="p-3 my-2">
-              <a href="#contact" className="bg-[#ff3e00] text-white font-medium px-4 py-3 rounded hover:bg-opacity-90 transition-colors text-center block w-full text-lg shadow-md" onClick={closeMenu}>Contact Us</a>
+              <a 
+                href="#contact" 
+                className="bg-[#ff3e00] text-white font-medium px-4 py-3 rounded hover:bg-opacity-90 transition-colors text-center block w-full text-lg shadow-md" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
+                  closeMenu();
+                }}
+              >
+                Contact Us
+              </a>
             </div>
           </div>
         </div>
