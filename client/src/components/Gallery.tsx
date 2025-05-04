@@ -4,6 +4,7 @@ import beforeAndBootsImage from '@assets/beforeandboots.jpg';
 import beforeAndHeelImage from '@assets/beforeandheel.jpg';
 import oxImage from '@assets/ox.jpg';
 import vibramImage from '@assets/vibram.jpg';
+import heelImage from '@assets/heel.jpg';
 
 interface GallerySlide {
   image: string;
@@ -30,7 +31,7 @@ const Gallery: React.FC = () => {
       description: "Premium Vibram sole replacement on hiking boots"
     },
     {
-      image: "https://images.unsplash.com/photo-1562273138-f46be4ebdf33?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
+      image: heelImage,
       title: "Heel Reconstruction",
       description: "Complete rebuild of damaged designer heels"
     },
