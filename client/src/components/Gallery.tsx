@@ -2,6 +2,8 @@ import React, { useRef, useState, useEffect } from 'react';
 import useAnimationObserver from '@/hooks/useAnimationObserver';
 import beforeAndBootsImage from '@assets/beforeandboots.jpg';
 import beforeAndHeelImage from '@assets/beforeandheel.jpg';
+import oxImage from '@assets/ox.jpg';
+import vibramImage from '@assets/vibram.jpg';
 
 interface GallerySlide {
   image: string;
@@ -18,12 +20,12 @@ const Gallery: React.FC = () => {
 
   const slides: GallerySlide[] = [
     {
-      image: "https://images.unsplash.com/photo-1543281632-b0549477adb1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
+      image: oxImage,
       title: "Leather Restoration",
       description: "Complete restoration of vintage leather oxfords"
     },
     {
-      image: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
+      image: vibramImage,
       title: "Sole Replacement",
       description: "Premium Vibram sole replacement on hiking boots"
     },
