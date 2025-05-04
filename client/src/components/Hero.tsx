@@ -102,8 +102,8 @@ const Hero: React.FC = () => {
             Brooklyn's finest shoe repair service since 1985. Traditional techniques meet modern standards at Michael's Shoe Repair in Carroll Gardens.
           </p>
           
-          <div className="flex items-center justify-center w-full mb-8 fade-in stagger-delay-2 font-heading font-bold text-2xl md:text-3xl lg:text-4xl text-white text-center" style={{ fontWeight: 800, letterSpacing: '-0.02em' }}>
-            <div className="mr-3">WE</div>
+          <div className="flex items-center justify-start w-full mb-8 fade-in stagger-delay-2 font-heading font-bold text-4xl md:text-5xl lg:text-6xl text-white" style={{ fontWeight: 800, letterSpacing: '-0.02em' }}>
+            <div className="mr-4">WE</div>
             <div ref={dynamicTextRef} style={{ whiteSpace: 'nowrap', minHeight: '1em' }}>
               {displayedText}
             </div>
