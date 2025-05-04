@@ -146,7 +146,14 @@ const Contact: React.FC = () => {
                   </svg>
                   <div>
                     <h4 className="font-heading font-semibold text-lg mb-1">Address</h4>
-                    <p className="font-body text-gray-300">319 Smith Street<br/>Carroll Gardens, Brooklyn<br/>NY 11231</p>
+                    <a 
+                      href="https://maps.google.com/?q=319+Smith+Street+Brooklyn+NY+11231" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="font-body text-gray-300 hover:text-[#ff3e00] transition-colors"
+                    >
+                      319 Smith Street<br/>Carroll Gardens, Brooklyn<br/>NY 11231
+                    </a>
                   </div>
                 </div>
                 
@@ -166,7 +173,12 @@ const Contact: React.FC = () => {
                   </svg>
                   <div>
                     <h4 className="font-heading font-semibold text-lg mb-1">Phone</h4>
-                    <p className="font-body text-gray-300">(718) 243-0288</p>
+                    <a 
+                      href="tel:+17182430288" 
+                      className="font-body text-gray-300 hover:text-[#ff3e00] transition-colors"
+                    >
+                      (718) 243-0288
+                    </a>
                   </div>
                 </div>
                 
@@ -176,7 +188,12 @@ const Contact: React.FC = () => {
                   </svg>
                   <div>
                     <h4 className="font-heading font-semibold text-lg mb-1">Email</h4>
-                    <p className="font-body text-gray-300">info@michaelsshoerepair.com</p>
+                    <a 
+                      href="mailto:info@michaelsshoerepair.com?subject=Repair%20Inquiry" 
+                      className="font-body text-gray-300 hover:text-[#ff3e00] transition-colors"
+                    >
+                      info@michaelsshoerepair.com
+                    </a>
                   </div>
                 </div>
               </div>
