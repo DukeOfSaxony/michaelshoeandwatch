@@ -58,12 +58,12 @@ app.use((req, res, next) => {
 
   // Use environment port or default to 5000 for local development
   // In Vercel, we need to use the PORT environment variable
-  const port = process.env.PORT || 5000;
+  const port = Number(process.env.PORT) || 5000;
   server.listen({
     port,
     host: "0.0.0.0",
     reusePort: true,
   }, () => {
-    log(`serving on port ${port}`);
+    log(`🚀 serving on port ${port}`);
   });
 })();

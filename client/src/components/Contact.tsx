@@ -1,9 +1,11 @@
 import React, { useRef, useState } from 'react';
 import useAnimationObserver from '@/hooks/useAnimationObserver';
+import { useToast } from '@/hooks/use-toast';
 
 const Contact: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   useAnimationObserver(sectionRef);
+  const { toast } = useToast();
 
   const [formData, setFormData] = useState({
     name: '',
@@ -12,41 +14,66 @@ const Contact: React.FC = () => {
     service: '',
     message: ''
   });
+  
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Create a formatted email body with the form data
-    const emailBody = `
-Name: ${formData.name}
-Email: ${formData.email}
-Phone: ${formData.phone}
-Service: ${formData.service}
-Message: ${formData.message}
-    `.trim();
-    
-    // Create the mailto link with the recipient, subject, and body
-    const mailtoLink = `mailto:michaelschade@gmail.com?subject=Website Inquiry from ${formData.name}&body=${encodeURIComponent(emailBody)}`;
-    
-    // Open the email client
-    window.location.href = mailtoLink;
-    
-    // Show confirmation message
-    alert(`Thank you for your message, ${formData.name}! Your email client should open with your message prepared to send to Michael's Shoe Repair.`);
-    
-    // Reset the form
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      service: '',
-      message: ''
-    });
+    try {
+      setIsSubmitting(true);
+      
+      // Submit form data to the API endpoint
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+      
+      const data = await response.json();
+      
+      if (response.ok) {
+        // Show success message
+        toast({
+          title: "Message Sent",
+          description: `Thank you for your message, ${formData.name}! We'll get back to you soon.`,
+        });
+        
+        // Reset the form
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          service: '',
+          message: ''
+        });
+      } else {
+        // Show error message
+        toast({
+          title: "Error",
+          description: data.message || "There was a problem sending your message. Please try again.",
+          variant: "destructive"
+        });
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      
+      // Show error message
+      toast({
+        title: "Error",
+        description: "There was a problem connecting to our server. Please try again later.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -140,9 +167,10 @@ Message: ${formData.message}
               
               <button 
                 type="submit" 
-                className="w-full bg-[#ff3e00] text-white font-heading font-semibold py-3 px-6 rounded hover:bg-opacity-90 transition-colors pulse-animation"
+                disabled={isSubmitting}
+                className={`w-full bg-[#ff3e00] text-white font-heading font-semibold py-3 px-6 rounded hover:bg-opacity-90 transition-colors pulse-animation ${isSubmitting ? 'opacity-70 cursor-wait' : ''}`}
               >
-                Send Message
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
             </form>
           </div>
