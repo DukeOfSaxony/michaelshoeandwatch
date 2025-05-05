@@ -42,7 +42,7 @@ Message: ${message}
 
       // Send email using SendGrid
       const success = await sendEmail({
-        to: 'michaelschade@gmail.com', // Replace with your actual recipient email
+        to: 'jdavydov@gmail.com', // Updated recipient email
         from: 'website@michaelsshoecraft.com', // Must be a verified sender in SendGrid
         subject: `Website Inquiry from ${name}`,
         text,
