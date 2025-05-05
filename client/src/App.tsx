@@ -7,6 +7,10 @@ import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import Privacy from "@/pages/Privacy";
 import Terms from "@/pages/Terms";
+import Debug from "@/pages/Debug";
+
+// Show debug tools only in development mode
+const isDev = import.meta.env.DEV || import.meta.env.MODE === 'development';
 
 function Router() {
   return (
@@ -14,6 +18,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/privacy" component={Privacy} />
       <Route path="/terms" component={Terms} />
+      {isDev && <Route path="/debug" component={Debug} />}
       <Route component={NotFound} />
     </Switch>
   );

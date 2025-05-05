@@ -64,6 +64,81 @@ const ApiTest = () => {
         >
           Test /api/debug
         </button>
+
+        <button
+          onClick={() => testApi('/api/test-sendgrid')}
+          disabled={loading}
+          className="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600 disabled:opacity-50"
+        >
+          Test SendGrid Config
+        </button>
+      </div>
+      
+      <div className="mb-6">
+        <h3 className="font-semibold mb-2">Test Contact Form API</h3>
+        <button
+          onClick={() => {
+            const testData = {
+              name: 'Test User',
+              email: 'test@example.com',
+              message: 'This is a test message from the API Test utility.',
+            };
+            
+            setLoading(true);
+            setResults(null);
+            setError(null);
+            
+            fetch('/api/send', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(testData),
+            })
+            .then(response => {
+              console.log('POST Response status:', response.status);
+              return response.json();
+            })
+            .then(data => {
+              console.log('POST Response data:', data);
+              setResults({
+                endpoint: '/api/send',
+                method: 'POST',
+                requestData: testData,
+                responseData: data,
+              });
+              
+              if (data.success) {
+                toast({
+                  title: "Test Email Sent",
+                  description: "The contact form API endpoint is working correctly!",
+                });
+              } else {
+                toast({
+                  title: "API Error",
+                  description: data.error || "The contact form API returned an error.",
+                  variant: "destructive",
+                });
+              }
+            })
+            .catch(err => {
+              console.error('POST error:', err);
+              setError(err.message || 'Unknown error');
+              toast({
+                title: "Request Failed",
+                description: err.message || "Could not connect to the contact form API",
+                variant: "destructive",
+              });
+            })
+            .finally(() => {
+              setLoading(false);
+            });
+          }}
+          disabled={loading}
+          className="px-4 py-2 bg-amber-500 text-white rounded hover:bg-amber-600 disabled:opacity-50"
+        >
+          Test Contact Form POST
+        </button>
       </div>
       
       {loading && (
