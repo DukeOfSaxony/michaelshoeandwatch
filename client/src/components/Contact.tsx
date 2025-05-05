@@ -44,7 +44,16 @@ const Contact: React.FC = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: `
+Service: ${formData.service || 'Not specified'}
+Phone: ${formData.phone || 'Not provided'}
+            
+${formData.message}
+          `.trim()
+        }),
       });
       
       const data = await response.json();
@@ -68,7 +77,7 @@ const Contact: React.FC = () => {
         // Show error message
         toast({
           title: "Error",
-          description: data.message || "Failed to send message. Please try again.",
+          description: data.error || "Failed to send message. Please try again.",
           variant: "destructive",
         });
       }
@@ -239,10 +248,10 @@ const Contact: React.FC = () => {
                   <div>
                     <h4 className="font-heading font-semibold text-lg mb-1">Email</h4>
                     <a 
-                      href="mailto:jdavydov@gmail.com?subject=Repair%20Inquiry" 
+                      href="mailto:diddleysquatter@gmail.com?subject=Repair%20Inquiry" 
                       className="font-body text-gray-300 hover:text-[#ff3e00] transition-colors"
                     >
-                      jdavydov@gmail.com
+                      diddleysquatter@gmail.com
                     </a>
                   </div>
                 </div>
