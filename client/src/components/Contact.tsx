@@ -14,44 +14,74 @@ const Contact: React.FC = () => {
     service: '',
     message: ''
   });
+  
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Create a formatted email body with the form data
-    const emailBody = `
-Name: ${formData.name}
-Email: ${formData.email}
-Phone: ${formData.phone || 'Not provided'}
-Service: ${formData.service || 'Not specified'}
-Message: ${formData.message}
-    `.trim();
+    // Validate form data
+    if (!formData.name || !formData.email || !formData.message) {
+      toast({
+        title: "Error",
+        description: "Please fill out all required fields.",
+        variant: "destructive",
+      });
+      return;
+    }
     
-    // Create the mailto link with the recipient, subject, and body
-    const mailtoLink = `mailto:jdavydov@gmail.com?subject=Website Inquiry from ${formData.name}&body=${encodeURIComponent(emailBody)}`;
+    setIsSubmitting(true);
     
-    // Open the email client
-    window.location.href = mailtoLink;
-    
-    // Show confirmation message using toast instead of alert
-    toast({
-      title: "Email Client Opened",
-      description: `Thank you, ${formData.name}! Your email client should open with your message ready to send.`,
-    });
-    
-    // Reset the form
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      service: '',
-      message: ''
-    });
+    try {
+      // Send data to Vercel serverless function
+      const response = await fetch('/api/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      const data = await response.json();
+      
+      if (response.ok) {
+        // Show success message
+        toast({
+          title: "Message Sent",
+          description: `Thank you, ${formData.name}! Your message has been sent successfully.`,
+        });
+        
+        // Reset the form
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          service: '',
+          message: ''
+        });
+      } else {
+        // Show error message
+        toast({
+          title: "Error",
+          description: data.message || "Failed to send message. Please try again.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      console.error('Error sending message:', error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -145,9 +175,10 @@ Message: ${formData.message}
               
               <button 
                 type="submit" 
-                className="w-full bg-[#ff3e00] text-white font-heading font-semibold py-3 px-6 rounded hover:bg-opacity-90 transition-colors pulse-animation"
+                disabled={isSubmitting}
+                className={`w-full bg-[#ff3e00] text-white font-heading font-semibold py-3 px-6 rounded hover:bg-opacity-90 transition-colors ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'pulse-animation'}`}
               >
-                Send Message
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
             </form>
           </div>
