@@ -14,66 +14,44 @@ const Contact: React.FC = () => {
     service: '',
     message: ''
   });
-  
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    try {
-      setIsSubmitting(true);
-      
-      // Submit form data to the API endpoint
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-      });
-      
-      const data = await response.json();
-      
-      if (response.ok) {
-        // Show success message
-        toast({
-          title: "Message Sent",
-          description: `Thank you for your message, ${formData.name}! We'll get back to you soon.`,
-        });
-        
-        // Reset the form
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          service: '',
-          message: ''
-        });
-      } else {
-        // Show error message
-        toast({
-          title: "Error",
-          description: data.message || "There was a problem sending your message. Please try again.",
-          variant: "destructive"
-        });
-      }
-    } catch (error) {
-      console.error('Form submission error:', error);
-      
-      // Show error message
-      toast({
-        title: "Error",
-        description: "There was a problem connecting to our server. Please try again later.",
-        variant: "destructive"
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+    // Create a formatted email body with the form data
+    const emailBody = `
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone || 'Not provided'}
+Service: ${formData.service || 'Not specified'}
+Message: ${formData.message}
+    `.trim();
+    
+    // Create the mailto link with the recipient, subject, and body
+    const mailtoLink = `mailto:michaelschade@gmail.com?subject=Website Inquiry from ${formData.name}&body=${encodeURIComponent(emailBody)}`;
+    
+    // Open the email client
+    window.location.href = mailtoLink;
+    
+    // Show confirmation message using toast instead of alert
+    toast({
+      title: "Email Client Opened",
+      description: `Thank you, ${formData.name}! Your email client should open with your message ready to send.`,
+    });
+    
+    // Reset the form
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      service: '',
+      message: ''
+    });
   };
 
   return (
@@ -167,10 +145,9 @@ const Contact: React.FC = () => {
               
               <button 
                 type="submit" 
-                disabled={isSubmitting}
-                className={`w-full bg-[#ff3e00] text-white font-heading font-semibold py-3 px-6 rounded hover:bg-opacity-90 transition-colors pulse-animation ${isSubmitting ? 'opacity-70 cursor-wait' : ''}`}
+                className="w-full bg-[#ff3e00] text-white font-heading font-semibold py-3 px-6 rounded hover:bg-opacity-90 transition-colors pulse-animation"
               >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
+                Send Message
               </button>
             </form>
           </div>
