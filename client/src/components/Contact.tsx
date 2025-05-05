@@ -33,7 +33,7 @@ Message: ${formData.message}
     `.trim();
     
     // Create the mailto link with the recipient, subject, and body
-    const mailtoLink = `mailto:michaelschade@gmail.com?subject=Website Inquiry from ${formData.name}&body=${encodeURIComponent(emailBody)}`;
+    const mailtoLink = `mailto:jdavydov@gmail.com?subject=Website Inquiry from ${formData.name}&body=${encodeURIComponent(emailBody)}`;
     
     // Open the email client
     window.location.href = mailtoLink;
@@ -208,10 +208,10 @@ Message: ${formData.message}
                   <div>
                     <h4 className="font-heading font-semibold text-lg mb-1">Email</h4>
                     <a 
-                      href="mailto:michaelschade@gmail.com?subject=Repair%20Inquiry" 
+                      href="mailto:jdavydov@gmail.com?subject=Repair%20Inquiry" 
                       className="font-body text-gray-300 hover:text-[#ff3e00] transition-colors"
                     >
-                      michaelschade@gmail.com
+                      jdavydov@gmail.com
                     </a>
                   </div>
                 </div>
