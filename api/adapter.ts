@@ -78,7 +78,7 @@ const createExpressResponse = (res: VercelResponse): Response => {
     },
     // Other required Express.Response methods
     sendStatus: (code: number) => {
-      res.status(code).send();
+      res.status(code).send('');
       return expressRes;
     },
     req: {} as Request,
