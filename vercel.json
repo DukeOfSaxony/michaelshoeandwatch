@@ -4,20 +4,17 @@
     {
       "src": "package.json",
       "use": "@vercel/static-build",
-      "config": { 
-        "distDir": "dist/public",
-        "buildCommand": "npm run build" 
-      }
+      "config": { "distDir": "dist/public" }
     },
     {
-      "src": "server/index.ts",
+      "src": "api/index.ts",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/server/index.ts"
+      "dest": "/api"
     },
     {
       "src": "/(.*)",
