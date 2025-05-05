@@ -37,7 +37,17 @@ const Contact: React.FC = () => {
     
     setIsSubmitting(true);
     
+    // Format the message with all form data for better readability
+    const formattedMessage = `
+Service: ${formData.service || 'Not specified'}
+Phone: ${formData.phone || 'Not provided'}
+            
+${formData.message}
+    `.trim();
+    
     try {
+      console.log('Submitting form to /api/send...');
+      
       // Send data to Vercel serverless function
       const response = await fetch('/api/send', {
         method: 'POST',
@@ -47,16 +57,21 @@ const Contact: React.FC = () => {
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
-          message: `
-Service: ${formData.service || 'Not specified'}
-Phone: ${formData.phone || 'Not provided'}
-            
-${formData.message}
-          `.trim()
+          message: formattedMessage
         }),
       });
       
-      const data = await response.json();
+      console.log('Response status:', response.status);
+      
+      // Try to parse the JSON response, but have a fallback for network errors
+      let data;
+      try {
+        data = await response.json();
+        console.log('Response data:', data);
+      } catch (jsonError) {
+        console.error('Error parsing JSON response:', jsonError);
+        data = { error: 'Could not parse server response' };
+      }
       
       if (response.ok) {
         // Show success message
@@ -74,18 +89,22 @@ ${formData.message}
           message: ''
         });
       } else {
-        // Show error message
+        // Show detailed error message 
+        const errorMessage = data.error 
+          ? `${data.error}${data.details ? `: ${data.details}` : ''}`
+          : "Failed to send message. Please try again.";
+          
         toast({
           title: "Error",
-          description: data.error || "Failed to send message. Please try again.",
+          description: errorMessage,
           variant: "destructive",
         });
       }
     } catch (error) {
-      console.error('Error sending message:', error);
+      console.error('Network error sending message:', error);
       toast({
-        title: "Error",
-        description: "Failed to send message. Please try again later.",
+        title: "Connection Error",
+        description: "Failed to connect to the server. Please check your internet connection and try again.",
         variant: "destructive",
       });
     } finally {
