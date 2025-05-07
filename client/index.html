@@ -9,6 +9,16 @@
     <title>Michael's Shoe Repair | Carroll Gardens, Brooklyn</title>
   </head>
   <body>
+    <!-- A hidden form for Netlify to detect during build time -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <select name="service"></select>
+      <textarea name="message"></textarea>
+      <input type="file" name="image" />
+    </form>
+    
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     <!-- This is a replit script which adds a banner on the top of the page when opened in development mode outside the replit environment -->

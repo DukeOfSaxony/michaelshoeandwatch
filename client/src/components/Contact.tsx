@@ -12,14 +12,22 @@ const Contact: React.FC = () => {
     email: '',
     phone: '',
     service: '',
-    message: ''
+    message: '',
+    image: null as File | null
   });
   
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setFormData(prev => ({ ...prev, image: e.target.files![0] }));
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -37,74 +45,36 @@ const Contact: React.FC = () => {
     
     setIsSubmitting(true);
     
-    // Format the message with all form data for better readability
-    const formattedMessage = `
-Service: ${formData.service || 'Not specified'}
-Phone: ${formData.phone || 'Not provided'}
-            
-${formData.message}
-    `.trim();
+    // For Netlify forms, we let the form submit naturally
+    // The browser will handle the form submission to Netlify
     
     try {
-      console.log('Submitting form to /api/send...');
+      // The form with 'data-netlify="true"' will be handled by Netlify automatically
+      // This code will execute after the form is submitted
       
-      // Send data to Vercel serverless function
-      const response = await fetch('/api/send', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          message: formattedMessage
-        }),
+      // Show success message (this will only run if JavaScript is still executing after form submit)
+      toast({
+        title: "Message Sent",
+        description: `Thank you, ${formData.name}! Your message has been sent successfully.`,
+      });
+        
+      // Reset the form (this may not execute if the page redirects)
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        service: '',
+        message: '',
+        image: null
       });
       
-      console.log('Response status:', response.status);
+      setFormSubmitted(true);
       
-      // Try to parse the JSON response, but have a fallback for network errors
-      let data;
-      try {
-        data = await response.json();
-        console.log('Response data:', data);
-      } catch (jsonError) {
-        console.error('Error parsing JSON response:', jsonError);
-        data = { error: 'Could not parse server response' };
-      }
-      
-      if (response.ok) {
-        // Show success message
-        toast({
-          title: "Message Sent",
-          description: `Thank you, ${formData.name}! Your message has been sent successfully.`,
-        });
-        
-        // Reset the form
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          service: '',
-          message: ''
-        });
-      } else {
-        // Show detailed error message 
-        const errorMessage = data.error 
-          ? `${data.error}${data.details ? `: ${data.details}` : ''}`
-          : "Failed to send message. Please try again.";
-          
-        toast({
-          title: "Error",
-          description: errorMessage,
-          variant: "destructive",
-        });
-      }
     } catch (error) {
-      console.error('Network error sending message:', error);
+      console.error('Error during form submission:', error);
       toast({
-        title: "Connection Error",
-        description: "Failed to connect to the server. Please check your internet connection and try again.",
+        title: "Error",
+        description: "Failed to send message. Please try again.",
         variant: "destructive",
       });
     } finally {
@@ -129,7 +99,18 @@ ${formData.message}
           <div className="bg-white rounded-lg shadow-md p-8 fade-in stagger-delay-2">
             <h3 className="font-heading font-semibold text-2xl text-[#1c1c1c] mb-6">Send Us a Message</h3>
             
-            <form id="contact-form" className="space-y-6" onSubmit={handleSubmit}>
+            <form 
+              id="contact-form" 
+              className="space-y-6" 
+              onSubmit={handleSubmit}
+              name="contact" 
+              method="POST" 
+              data-netlify="true" 
+              encType="multipart/form-data"
+            >
+              {/* Required Netlify hidden field */}
+              <input type="hidden" name="form-name" value="contact" />
+              
               <div className="form-input">
                 <label htmlFor="name" className="block font-body text-gray-700 mb-2">Your Name</label>
                 <input 
@@ -173,11 +154,15 @@ ${formData.message}
                 <select 
                   id="service" 
                   name="service" 
+                  required
                   className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff3e00] focus:border-[#ff3e00]"
                   value={formData.service}
                   onChange={handleChange}
                 >
                   <option value="">Select a Service</option>
+                  <option value="shoe-repair">Shoe Repair</option>
+                  <option value="watch-repair">Watch Repair</option>
+                  <option value="jewelry-repair">Jewelry Repair</option>
                   <option value="sole-replacement">Sole Replacement</option>
                   <option value="heel-repair">Heel Repair</option>
                   <option value="leather-restoration">Leather Restoration</option>
@@ -199,6 +184,18 @@ ${formData.message}
                   value={formData.message}
                   onChange={handleChange}
                 ></textarea>
+              </div>
+              
+              <div className="form-input">
+                <label htmlFor="image" className="block font-body text-gray-700 mb-2">Upload Image (Optional)</label>
+                <input 
+                  type="file" 
+                  id="image" 
+                  name="image" 
+                  accept="image/*"
+                  className="w-full p-2 border border-gray-300 rounded-md"
+                  onChange={handleFileChange} 
+                />
               </div>
               
               <button 
