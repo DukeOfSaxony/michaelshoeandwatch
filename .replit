@@ -38,3 +38,5 @@ waitForPort = 5000
 
 [env]
 GITHUB_TOKEN = "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"
+build = ["npm", "run", "build"]
+npm run build
