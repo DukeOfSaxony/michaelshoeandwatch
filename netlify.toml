@@ -1,0 +1,12 @@
+[build]
+  command = "npm run build"  # Build command
+  publish = "dist"           # Output directory
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Netlify form handling settings
+[build.processing.html]
+  pretty_urls = true
