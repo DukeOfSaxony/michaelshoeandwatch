@@ -45,20 +45,53 @@ const Contact: React.FC = () => {
     
     setIsSubmitting(true);
     
-    // For Netlify forms, we let the form submit naturally
-    // The browser will handle the form submission to Netlify
-    
     try {
-      // The form with 'data-netlify="true"' will be handled by Netlify automatically
-      // This code will execute after the form is submitted
+      // Check if running on Netlify (in production)
+      const isNetlify = window.location.hostname.includes('netlify.app') || 
+                       !window.location.hostname.includes('localhost');
       
-      // Show success message (this will only run if JavaScript is still executing after form submit)
+      if (isNetlify) {
+        // For Netlify forms, we need to create a FormData object
+        const formElement = e.target as HTMLFormElement;
+        const formDataObj = new FormData(formElement);
+        
+        // Submit the form to Netlify's form handling endpoint
+        const response = await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(formDataObj as any).toString()
+        });
+        
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+      } else {
+        // When running locally, use our API endpoint
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            service: formData.service,
+            message: formData.message
+          })
+        });
+        
+        if (!response.ok) {
+          const data = await response.json();
+          throw new Error(data.message || 'Something went wrong');
+        }
+      }
+      
+      // Show success message
       toast({
         title: "Message Sent",
         description: `Thank you, ${formData.name}! Your message has been sent successfully.`,
       });
         
-      // Reset the form (this may not execute if the page redirects)
+      // Reset the form
       setFormData({
         name: '',
         email: '',
