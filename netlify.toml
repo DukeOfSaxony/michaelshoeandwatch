@@ -2,6 +2,13 @@
   command = "npm run build"  # Build command
   publish = "dist/public"    # Output directory - updated to match Vite's configuration
 
+# Success page redirect must come first
+[[redirects]]
+  from = "/success.html"
+  to = "/success.html"
+  status = 200
+
+# General single-page app redirect
 [[redirects]]
   from = "/*"
   to = "/index.html"
@@ -21,8 +28,3 @@
     name = "Contact Form"
     subject = "New message from your website"
     success_url = "/success.html"
-
-[[redirects]]
-  from = "/success.html"
-  to = "/success.html"
-  status = 200

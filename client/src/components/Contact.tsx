@@ -31,7 +31,7 @@ const Contact: React.FC = () => {
   };
 
   const handleSubmit = (e: React.FormEvent) => {
-    // For form validation
+    // Basic form validation
     if (!formData.name || !formData.email || !formData.message) {
       e.preventDefault();
       toast({
@@ -42,20 +42,20 @@ const Contact: React.FC = () => {
       return;
     }
     
-    setIsSubmitting(true);
-    
     // Check if running on Netlify (in production)
     const isNetlify = window.location.hostname.includes('netlify.app') || 
                      !window.location.hostname.includes('localhost');
     
     if (isNetlify) {
-      // For Netlify forms with file uploads, we don't need to do anything special
-      // Just let the form submit normally - Netlify's robots will process it
-      return; // Don't prevent default form submission
+      // For Netlify forms, just let the normal form submission happen
+      // The action="/success.html" in the form tag will handle redirection
+      setIsSubmitting(true);
+      return; // Continue with normal form submission
     }
     
     // Only for local development - prevent default and handle manually
     e.preventDefault();
+    setIsSubmitting(true);
     
     // Local API call code
     fetch('/api/contact', {
@@ -131,6 +131,7 @@ const Contact: React.FC = () => {
               name="contact" 
               method="POST" 
               data-netlify="true" 
+              action="/success.html"
               encType="multipart/form-data"
             >
               {/* Required Netlify hidden field */}
