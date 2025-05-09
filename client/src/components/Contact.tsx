@@ -51,39 +51,25 @@ const Contact: React.FC = () => {
                        !window.location.hostname.includes('localhost');
       
       if (isNetlify) {
-        // For Netlify forms, we use their invisible form submission technique
-        const form = document.createElement('form');
-        form.setAttribute('method', 'POST');
-        form.setAttribute('name', 'contact');
-        form.setAttribute('netlify', '');
-        form.setAttribute('netlify-honeypot', 'bot-field');
-        form.setAttribute('hidden', '');
+        // For Netlify forms with file uploads, we need to use FormData
+        const form = e.target as HTMLFormElement;
+        const formData = new FormData(form);
         
-        // Add all the form fields
-        const honeypot = document.createElement('input');
-        honeypot.setAttribute('name', 'bot-field');
-        form.appendChild(honeypot);
+        // Make sure the form-name field is included
+        formData.append("form-name", "contact");
         
-        const formNameField = document.createElement('input');
-        formNameField.setAttribute('type', 'hidden');
-        formNameField.setAttribute('name', 'form-name');
-        formNameField.setAttribute('value', 'contact');
-        form.appendChild(formNameField);
+        // Submit the form via fetch with FormData
+        const response = await fetch("/", {
+          method: "POST",
+          body: formData
+        });
         
-        for (const key in formData) {
-          if (key !== 'image') { // Skip file input for now
-            const input = document.createElement('input');
-            input.setAttribute('name', key);
-            input.setAttribute('value', (formData as any)[key] || '');
-            form.appendChild(input);
-          }
+        if (!response.ok) {
+          throw new Error(`Form submission failed: ${response.statusText}`);
         }
         
-        // Append form to body and submit
-        document.body.appendChild(form);
-        form.submit();
-        
-        // No need for further processing as the page will reload
+        // Redirect to success page
+        window.location.href = "/success.html";
         return;
       } else {
         // When running locally, use our API endpoint
