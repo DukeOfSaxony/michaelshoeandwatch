@@ -30,11 +30,10 @@ const Contact: React.FC = () => {
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Validate form data
+  const handleSubmit = (e: React.FormEvent) => {
+    // For form validation
     if (!formData.name || !formData.email || !formData.message) {
+      e.preventDefault();
       toast({
         title: "Error",
         description: "Please fill out all required fields.",
@@ -45,79 +44,70 @@ const Contact: React.FC = () => {
     
     setIsSubmitting(true);
     
-    try {
-      // Check if running on Netlify (in production)
-      const isNetlify = window.location.hostname.includes('netlify.app') || 
-                       !window.location.hostname.includes('localhost');
-      
-      if (isNetlify) {
-        // For Netlify forms with file uploads, we need to use FormData
-        const form = e.target as HTMLFormElement;
-        const formData = new FormData(form);
-        
-        // Make sure the form-name field is included
-        formData.append("form-name", "contact");
-        
-        // Submit the form via fetch with FormData
-        const response = await fetch("/", {
-          method: "POST",
-          body: formData
-        });
-        
-        if (!response.ok) {
-          throw new Error(`Form submission failed: ${response.statusText}`);
-        }
-        
-        // Redirect to success page
-        window.location.href = "/success.html";
-        return;
-      } else {
-        // When running locally, use our API endpoint
-        const response = await fetch('/api/contact', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            name: formData.name,
-            email: formData.email,
-            phone: formData.phone,
-            service: formData.service,
-            message: formData.message
-          })
-        });
-        
-        if (!response.ok) {
-          const data = await response.json();
+    // Check if running on Netlify (in production)
+    const isNetlify = window.location.hostname.includes('netlify.app') || 
+                     !window.location.hostname.includes('localhost');
+    
+    if (isNetlify) {
+      // For Netlify forms, just set action and let form submit naturally
+      const form = e.target as HTMLFormElement;
+      form.setAttribute('action', '/success.html');
+      // Don't prevent default - let the form submit naturally
+      // Netlify will handle the submission and file upload
+      return;
+    }
+    
+    // Only for local development - prevent default and handle manually
+    e.preventDefault();
+    
+    // Local API call code
+    fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        service: formData.service,
+        message: formData.message
+      })
+    })
+    .then(response => {
+      if (!response.ok) {
+        return response.json().then(data => {
           throw new Error(data.message || 'Something went wrong');
-        }
-        
-        // Show success message
-        toast({
-          title: "Message Sent",
-          description: `Thank you, ${formData.name}! Your message has been sent successfully.`,
         });
-          
-        // Reset the form
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          service: '',
-          message: '',
-          image: null
-        });
-        
-        setFormSubmitted(true);
       }
-    } catch (error) {
+      
+      // Show success message
+      toast({
+        title: "Message Sent",
+        description: `Thank you, ${formData.name}! Your message has been sent successfully.`,
+      });
+        
+      // Reset the form
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        service: '',
+        message: '',
+        image: null
+      });
+      
+      setFormSubmitted(true);
+    })
+    .catch(error => {
       console.error('Error during form submission:', error);
       toast({
         title: "Error",
         description: "Failed to send message. Please try again.",
         variant: "destructive",
       });
-    } finally {
+    })
+    .finally(() => {
       setIsSubmitting(false);
-    }
+    });
   };
 
   return (
