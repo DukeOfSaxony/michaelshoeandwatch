@@ -24,4 +24,4 @@
   [forms."contact"]
     name = "Contact Form"
     subject = "New message from your website"
-    success_url = "/"
+    success_url = "/success.html"

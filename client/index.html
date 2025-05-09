@@ -11,10 +11,22 @@
   <body>
     <!-- A hidden form for Netlify to detect during build time -->
     <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="contact" />
       <input type="text" name="name" />
       <input type="email" name="email" />
       <input type="tel" name="phone" />
-      <select name="service"></select>
+      <select name="service">
+        <option value="shoe-repair">Shoe Repair</option>
+        <option value="watch-repair">Watch Repair</option>
+        <option value="jewelry-repair">Jewelry Repair</option>
+        <option value="sole-replacement">Sole Replacement</option>
+        <option value="heel-repair">Heel Repair</option>
+        <option value="leather-restoration">Leather Restoration</option>
+        <option value="stretching">Shoe Stretching</option>
+        <option value="orthopedic">Orthopedic Modifications</option>
+        <option value="sneaker-cleaning">Sneaker Cleaning</option>
+        <option value="other">Other</option>
+      </select>
       <textarea name="message"></textarea>
       <input type="file" name="image" />
     </form>

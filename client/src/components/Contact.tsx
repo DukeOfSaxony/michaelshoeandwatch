@@ -51,20 +51,40 @@ const Contact: React.FC = () => {
                        !window.location.hostname.includes('localhost');
       
       if (isNetlify) {
-        // For Netlify forms, we need to create a FormData object
-        const formElement = e.target as HTMLFormElement;
-        const formDataObj = new FormData(formElement);
+        // For Netlify forms, we use their invisible form submission technique
+        const form = document.createElement('form');
+        form.setAttribute('method', 'POST');
+        form.setAttribute('name', 'contact');
+        form.setAttribute('netlify', '');
+        form.setAttribute('netlify-honeypot', 'bot-field');
+        form.setAttribute('hidden', '');
         
-        // Submit the form to Netlify's form handling endpoint
-        const response = await fetch('/', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: new URLSearchParams(formDataObj as any).toString()
-        });
+        // Add all the form fields
+        const honeypot = document.createElement('input');
+        honeypot.setAttribute('name', 'bot-field');
+        form.appendChild(honeypot);
         
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
+        const formNameField = document.createElement('input');
+        formNameField.setAttribute('type', 'hidden');
+        formNameField.setAttribute('name', 'form-name');
+        formNameField.setAttribute('value', 'contact');
+        form.appendChild(formNameField);
+        
+        for (const key in formData) {
+          if (key !== 'image') { // Skip file input for now
+            const input = document.createElement('input');
+            input.setAttribute('name', key);
+            input.setAttribute('value', (formData as any)[key] || '');
+            form.appendChild(input);
+          }
         }
+        
+        // Append form to body and submit
+        document.body.appendChild(form);
+        form.submit();
+        
+        // No need for further processing as the page will reload
+        return;
       } else {
         // When running locally, use our API endpoint
         const response = await fetch('/api/contact', {
@@ -83,26 +103,25 @@ const Contact: React.FC = () => {
           const data = await response.json();
           throw new Error(data.message || 'Something went wrong');
         }
-      }
-      
-      // Show success message
-      toast({
-        title: "Message Sent",
-        description: `Thank you, ${formData.name}! Your message has been sent successfully.`,
-      });
         
-      // Reset the form
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        service: '',
-        message: '',
-        image: null
-      });
-      
-      setFormSubmitted(true);
-      
+        // Show success message
+        toast({
+          title: "Message Sent",
+          description: `Thank you, ${formData.name}! Your message has been sent successfully.`,
+        });
+          
+        // Reset the form
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          service: '',
+          message: '',
+          image: null
+        });
+        
+        setFormSubmitted(true);
+      }
     } catch (error) {
       console.error('Error during form submission:', error);
       toast({
