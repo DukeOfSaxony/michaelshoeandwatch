@@ -21,3 +21,8 @@
     name = "Contact Form"
     subject = "New message from your website"
     success_url = "/success.html"
+
+[[redirects]]
+  from = "/success.html"
+  to = "/success.html"
+  status = 200

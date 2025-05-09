@@ -49,12 +49,9 @@ const Contact: React.FC = () => {
                      !window.location.hostname.includes('localhost');
     
     if (isNetlify) {
-      // For Netlify forms, just set action and let form submit naturally
-      const form = e.target as HTMLFormElement;
-      form.setAttribute('action', '/success.html');
-      // Don't prevent default - let the form submit naturally
-      // Netlify will handle the submission and file upload
-      return;
+      // For Netlify forms with file uploads, we don't need to do anything special
+      // Just let the form submit normally - Netlify's robots will process it
+      return; // Don't prevent default form submission
     }
     
     // Only for local development - prevent default and handle manually
