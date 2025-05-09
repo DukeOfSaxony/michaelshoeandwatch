@@ -1,7 +1,6 @@
 [build]
   command = "npm run build"  # Build command
   publish = "dist/public"    # Output directory - updated to match Vite's configuration
-  functions = "netlify/functions"  # Directory with serverless functions
 
 [[redirects]]
   from = "/*"
@@ -11,13 +10,6 @@
 # Netlify form handling settings
 [build.processing.html]
   pretty_urls = true
-
-[functions]
-  node_bundler = "esbuild"
-
-# Form submissions handling
-[dev]
-  functions = "netlify/functions"
 
 # Form notifications
 [forms]
